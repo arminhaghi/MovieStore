@@ -8,7 +8,7 @@ class ClassicMovie : public Movie
 {
 public:
 	ClassicMovie();
-	ClassicMovie(const Person &argDirector, const string &argTitle, const Person &argActor, const char &argType, const int &argYear, const int &argMonth);
+	ClassicMovie(const Person &argDirector, const string &argTitle, const Person &argActor, const char &argType, const int &argYear, const int &argMonth, const int &argAmount);
 	~ClassicMovie();
 
 	Person getActor();

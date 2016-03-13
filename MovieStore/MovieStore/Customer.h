@@ -7,7 +7,7 @@ class Customer
 {
 public:
 	Customer();
-	Customer(int &argCustomerId, string &argFirstname, string &argLastname);
+	Customer(int &argCustomerId, string &argName);
 	Customer(int &argCustomerId, Person &argPerson);
 	~Customer();
 

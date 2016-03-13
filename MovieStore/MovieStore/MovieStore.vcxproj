@@ -150,6 +150,7 @@
     <ClInclude Include="ComedyMovie.h" />
     <ClInclude Include="Customer.h" />
     <ClInclude Include="DramaMovie.h" />
+    <ClInclude Include="FileReader.h" />
     <ClInclude Include="HashTable.h" />
     <ClInclude Include="HistoryTransaction.h" />
     <ClInclude Include="InventoryTransaction.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Transaction.h" />
+    <ClInclude Include="TransactionFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BorrowTransaction.cpp" />
@@ -168,6 +170,7 @@
     <ClCompile Include="ComedyMovie.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="DramaMovie.cpp" />
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="HistoryTransaction.cpp" />
     <ClCompile Include="InventoryTransaction.cpp" />
@@ -184,6 +187,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Transaction.cpp" />
+    <ClCompile Include="TransactionFactory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

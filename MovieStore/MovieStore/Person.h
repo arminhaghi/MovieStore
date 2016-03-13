@@ -6,18 +6,14 @@ class Person
 {
 public:
 	Person();
-	Person(string &argFirstname, string &argLastname);
+	Person(const string &name);
 	~Person();
 
-	void setFirstname(const string &argFirstname);
-	void setLastname(const string &argLastname);
+	void setName(const string &argname);
 
-	string getFirstname() const;
-	string getLastname() const;
-	string getFullname() const;
+	string getName() const;
 
 private:
-	string firstname;
-	string lastname;
+	string name;
 };
 

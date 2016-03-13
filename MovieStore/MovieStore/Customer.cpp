@@ -7,11 +7,10 @@ Customer::Customer()
 	customerId = 0;
 }
 
-Customer::Customer(int & argCustomerId, string & argFirstname, string & argLastname)
+Customer::Customer(int & argCustomerId, string & argName)
 {
 	customerId = argCustomerId;
-	customer.setFirstname(argFirstname);
-	customer.setLastname(argLastname);
+	customer.setName(argName);
 }
 
 Customer::Customer(int & argCustomerId, Person & argPerson)

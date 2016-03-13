@@ -7,6 +7,7 @@ class BorrowTransaction : public Transaction
 {
 public:
 	BorrowTransaction();
+	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieData);
 	~BorrowTransaction();
 	bool Process();
 

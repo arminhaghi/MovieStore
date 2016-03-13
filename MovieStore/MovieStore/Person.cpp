@@ -3,42 +3,24 @@
 
 Person::Person()
 {
-	setFirstname("");
-	setLastname("");
+	setName("");
 }
 
-Person::Person(string & argFirstname, string & argLastname)
+Person::Person(const string & argName)
 {
-	setFirstname(argFirstname);
-	setLastname(argLastname);
+	setName(argName);
 }
-
 
 Person::~Person()
 {
 }
 
-void Person::setFirstname(const string &argFirstname)
+void Person::setName(const string &argName)
 {
-	firstname = argFirstname;
+	name = argName;
 }
 
-void Person::setLastname(const string &argLastname)
+string Person::getName() const
 {
-	lastname = argLastname;
-}
-
-string Person::getFirstname() const
-{
-	return firstname;
-}
-
-string Person::getLastname() const
-{
-	return lastname;
-}
-
-string Person::getFullname() const
-{
-	return getFirstname() + " " + getLastname();
+	return name;
 }

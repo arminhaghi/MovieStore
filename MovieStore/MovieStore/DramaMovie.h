@@ -7,7 +7,7 @@ class DramaMovie : public Movie
 {
 public:
 	DramaMovie();
-	DramaMovie(const Person &argDirector, const string &argTitle, const char &argType, const int &argYear);
+	DramaMovie(const Person &argDirector, const string &argTitle, const char &argType, const int &argYear, const int &argAmount);
 	~DramaMovie();
 
 	// Base pure virtual functions

@@ -8,25 +8,11 @@
 #include "DramaMovie.h"
 #include <iostream>
 #include "MovieFactory.h"
+#include "FileReader.h"
 
 int main()
 {
-	Movie* m;
-
-	char c;
-	while (true)
-	{
-		cin >> c;
-
-		m = MovieFactory().makeMovie(c);
-
-		m->setReleaseMonth(1);
-
-		cout << m->getReleaseMonth() << endl;
-
-		cout << m->getIdentifier() << endl;
-	}
-
+	FileReader fileReader;
+	fileReader.ReadData4Movies("data4movies.txt");
 	return 0;
 }
-
