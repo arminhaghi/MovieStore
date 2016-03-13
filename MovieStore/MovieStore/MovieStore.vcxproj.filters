@@ -74,12 +74,6 @@
     <ClCompile Include="MovieStore.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Lab 4\HashTableDriver\HashTableDriver\HashTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Lab 4\HashTableDriver\HashTableDriver\LinkList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="InventoryTransaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

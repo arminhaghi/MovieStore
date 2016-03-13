@@ -163,8 +163,6 @@
     <ClInclude Include="Transaction.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Lab 4\HashTableDriver\HashTableDriver\HashTable.cpp" />
-    <ClCompile Include="..\..\..\Lab 4\HashTableDriver\HashTableDriver\LinkList.cpp" />
     <ClCompile Include="BorrowTransaction.cpp" />
     <ClCompile Include="ClassicMovie.cpp" />
     <ClCompile Include="ComedyMovie.cpp" />
