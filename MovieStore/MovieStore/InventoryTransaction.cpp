@@ -6,7 +6,6 @@ InventoryTransaction::InventoryTransaction()
 {
 }
 
-
 InventoryTransaction::~InventoryTransaction()
 {
 }

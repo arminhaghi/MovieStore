@@ -21,3 +21,15 @@ void FileReader::ReadData4Movies(const string &argFileName)
 			MovieFactory().makeMovie(stringForMakeMovie);
 	}
 }
+
+void FileReader::ReadData4Commands(const string &argFileName)
+{
+	ifstream file(argFileName);
+	string stringForMakeTransaction;
+	while (!file.eof())
+	{
+		getline(file, stringForMakeTransaction);
+		if (stringForMakeTransaction != "")
+			TransactionFactory().makeTransaction(stringForMakeTransaction);
+	}
+}

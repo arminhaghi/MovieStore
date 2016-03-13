@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include "MovieFactory.h"
+#include "TransactionFactory.h"
 using namespace std;
 
 class FileReader

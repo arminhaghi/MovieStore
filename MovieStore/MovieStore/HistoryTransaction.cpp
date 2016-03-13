@@ -6,6 +6,10 @@ HistoryTransaction::HistoryTransaction()
 {
 }
 
+HistoryTransaction::HistoryTransaction(const int &customerID)
+{
+
+}
 
 HistoryTransaction::~HistoryTransaction()
 {

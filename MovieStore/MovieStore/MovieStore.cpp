@@ -14,5 +14,6 @@ int main()
 {
 	FileReader fileReader;
 	fileReader.ReadData4Movies("data4movies.txt");
+	fileReader.ReadData4Commands("data4commands.txt");
 	return 0;
 }

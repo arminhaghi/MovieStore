@@ -6,6 +6,10 @@ BorrowTransaction::BorrowTransaction()
 {
 }
 
+BorrowTransaction::BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieData)
+{
+
+}
 
 BorrowTransaction::~BorrowTransaction()
 {

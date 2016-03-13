@@ -7,6 +7,7 @@ class HistoryTransaction : public Transaction
 {
 public:
 	HistoryTransaction();
+	HistoryTransaction(const int &customerID);
 	~HistoryTransaction();
 	bool Process();
 
