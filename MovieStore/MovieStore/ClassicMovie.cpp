@@ -6,7 +6,7 @@ ClassicMovie::ClassicMovie()
 {
 }
 
-ClassicMovie::ClassicMovie(const Person & argDirector, const string & argTitle, const Person & argActor, const char & argType, const int & argYear, const int & argMonth, const int &argAmount)
+ClassicMovie::ClassicMovie(const string & argDirector, const string & argTitle, const string & argActor, const char & argType, const int & argYear, const int & argMonth, const int &argAmount)
 {
 	setDirector(argDirector);
 	setActor(argActor);
@@ -21,12 +21,12 @@ ClassicMovie::~ClassicMovie()
 {
 }
 
-Person ClassicMovie::getActor()
+string ClassicMovie::getActor()
 {
 	return actor;
 }
 
-void ClassicMovie::setActor(const Person & argActor)
+void ClassicMovie::setActor(const string & argActor)
 {
 	actor = argActor;
 }

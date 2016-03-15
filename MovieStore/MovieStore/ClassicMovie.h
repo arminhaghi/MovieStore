@@ -1,6 +1,5 @@
 #pragma once
 #include "Movie.h"
-#include "Person.h"
 #include <string>
 using namespace std;
 
@@ -8,11 +7,11 @@ class ClassicMovie : public Movie
 {
 public:
 	ClassicMovie();
-	ClassicMovie(const Person &argDirector, const string &argTitle, const Person &argActor, const char &argType, const int &argYear, const int &argMonth, const int &argAmount);
+	ClassicMovie(const string &argDirector, const string &argTitle, const string &argActor, const char &argType, const int &argYear, const int &argMonth, const int &argAmount);
 	~ClassicMovie();
 
-	Person getActor();
-	void setActor(const Person &argActor);
+	string getActor();
+	void setActor(const string &argActor);
 	int getReleaseMonth();
 	void setReleaseMonth(int argMonth);
 
@@ -22,6 +21,6 @@ public:
 private:
 	char identifier = 'c';
 	int releaseMonth;
-	Person actor;
+	string actor;
 };
 

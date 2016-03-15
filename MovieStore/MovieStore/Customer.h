@@ -1,21 +1,27 @@
 #pragma once
-#include "Person.h"
 #include <string>
+#include "Transaction.h"
+#include <vector>
 using namespace std;
 
 class Customer
 {
 public:
 	Customer();
-	Customer(int &argCustomerId, string &argName);
-	Customer(int &argCustomerId, Person &argPerson);
+	Customer(const int &argCustomerId,  const string &argName);
 	~Customer();
 
+	bool operator<(const Customer &customer) const;
+	bool operator>(const Customer &customer) const;
+	bool operator==(const Customer &customer) const;
+
 	int getCustomerId() const;
-	Person getPerson() const;
+	string getName() const;
+	void addTransaction(Transaction *trans);
 
 private:
 	int customerId;
-	Person customer;
+	string name;
+	vector<Transaction*> transactions;
 };
 

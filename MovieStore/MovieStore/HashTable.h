@@ -12,7 +12,6 @@
 #define HASH_TABLE_H
 #include "LinkList.h"
 #include <string>
-#include <vld.h>
 using namespace std;
 
 const int TABLE_SIZE = 1000;
@@ -28,7 +27,8 @@ public:
 	bool Find(ItemType &item, int key);
 
 private:
-	LinkList<int> *table;
+	LinkList<ItemType> *table;
+	int hash(int key) const;
 };
 
 #endif
@@ -36,7 +36,7 @@ private:
 template <class ItemType>
 HashTable<ItemType>::HashTable()
 {
-	table = new LinkList<int>[TABLE_SIZE];
+	table = new LinkList<ItemType>[TABLE_SIZE];
 }
 
 template <class ItemType>
@@ -49,12 +49,18 @@ HashTable<ItemType>::~HashTable()
 template <class ItemType>
 void HashTable<ItemType>::Insert(ItemType *item, int key)
 {
-	table[key].Insert(item);
+	table[hash(key)].Insert(item);
 }
 
 template <class ItemType>
 bool HashTable<ItemType>::Find(ItemType &item, int key)
 {
-	int result;
-	return table[key].Peek(item, result);
+	ItemType result;
+	return table[hash(key)].Peek(item, item);
+}
+
+template <class ItemType>
+int HashTable<ItemType>::hash(int key) const
+{
+	return key % 1000;
 }

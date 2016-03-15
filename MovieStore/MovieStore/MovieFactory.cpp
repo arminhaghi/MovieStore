@@ -1,19 +1,17 @@
 #include "stdafx.h"
 #include "MovieFactory.h"
 
-Movie * MovieFactory::makeMovie(string movieInfo)
+Movie * MovieFactory::makeMovie(const vector<string> movieCreationInfo)
 {
-	vector<string> movieCreationInfo = split(movieInfo, ',');
-
 	if (movieCreationInfo[0] == "f" || movieCreationInfo[0] == "F")
-		return new ComedyMovie(Person(movieCreationInfo[2]), movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
+		return new ComedyMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
 	else if (movieCreationInfo[0] == "c" || movieCreationInfo[0] == "C")
 	{
 		vector<string> actorYearInfo = splitActorAndDate(movieCreationInfo[4]);
-		return new ClassicMovie(Person(movieCreationInfo[2]), movieCreationInfo[3], Person(actorYearInfo[0]), 'D', stoi(actorYearInfo[2]), stoi(actorYearInfo[1]), stoi(movieCreationInfo[1]));
+		return new ClassicMovie(movieCreationInfo[2], movieCreationInfo[3], actorYearInfo[0], 'D', stoi(actorYearInfo[2]), stoi(actorYearInfo[1]), stoi(movieCreationInfo[1]));
 	}
 	else if (movieCreationInfo[0] == "d" || movieCreationInfo[0] == "D")
-		return new DramaMovie(Person(movieCreationInfo[2]), movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
+		return new DramaMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
 	else
 		cout << movieCreationInfo[0] << " is not a movie code!" << endl;
 }

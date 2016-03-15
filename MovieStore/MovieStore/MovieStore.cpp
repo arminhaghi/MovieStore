@@ -12,8 +12,17 @@
 
 int main()
 {
+	HashTable<Customer> customers;
+	vector<Movie*> movies;
+	Customer x(2000, "Ducky Donald");
+
 	FileReader fileReader;
-	fileReader.ReadData4Movies("data4movies.txt");
-	fileReader.ReadData4Commands("data4commands.txt");
+	fileReader.ReadData4Movies("data4movies.txt", movies);
+	fileReader.ReadData4Customers("data4customers.txt", customers);
+	fileReader.ReadData4Commands("data4commands.txt", customers);
+
+	if(customers.Find(x, 2000))
+		cout << x.getName() << endl;
+
 	return 0;
 }

@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "TransactionFactory.h"
 
-Transaction* TransactionFactory::makeTransaction(const string &argMovieInfo)
+Transaction* TransactionFactory::makeTransaction(const vector<string> transCreationInfo)
 {
-	vector<string> transCreationInfo = split(argMovieInfo, ' ');
 	if (transCreationInfo[0] == "I" || transCreationInfo[0] == "i")
 		return new InventoryTransaction();
 	else if(transCreationInfo[0] == "H" || transCreationInfo[0] == "h")
@@ -14,27 +13,6 @@ Transaction* TransactionFactory::makeTransaction(const string &argMovieInfo)
 		return new ReturnTransaction(stoi(transCreationInfo[1]), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo));
 	else
 		cout << transCreationInfo[0] << " is not an action code!" << endl;
-}
-
-vector<string> TransactionFactory::split(string stringToSplit, char separator)
-{
-	string argument = "";
-	vector<string> stringArr;
-
-	for (int i = 0; i < stringToSplit.length(); i++)
-	{
-		if (stringToSplit[i] == separator)
-		{
-			stringArr.push_back(argument);
-			argument = "";
-		}
-		else
-		{
-			argument += stringToSplit[i];
-		}
-	}
-	stringArr.push_back(argument);
-	return stringArr;
 }
 
 string TransactionFactory::combineMovieData(vector<string> movieInfo)

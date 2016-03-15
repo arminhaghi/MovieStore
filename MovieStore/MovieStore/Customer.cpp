@@ -7,21 +7,29 @@ Customer::Customer()
 	customerId = 0;
 }
 
-Customer::Customer(int & argCustomerId, string & argName)
+Customer::Customer(const int & argCustomerId, const string & argName)
 {
 	customerId = argCustomerId;
-	customer.setName(argName);
+	name = argName;
 }
-
-Customer::Customer(int & argCustomerId, Person & argPerson)
-{
-	customerId = argCustomerId;
-	customer = argPerson;
-}
-
 
 Customer::~Customer()
 {
+}
+
+bool Customer::operator<(const Customer &customer) const
+{
+	return customerId < customer.customerId;
+}
+
+bool Customer::operator>(const Customer &customer) const
+{
+	return customerId > customer.customerId;
+}
+
+bool Customer::operator==(const Customer &customer) const
+{
+	return customerId == customer.customerId;
 }
 
 int Customer::getCustomerId() const
@@ -29,7 +37,12 @@ int Customer::getCustomerId() const
 	return customerId;
 }
 
-Person Customer::getPerson() const
+string Customer::getName() const
 {
-	return customer;
+	return name;
+}
+
+void Customer::addTransaction(Transaction *trans)
+{
+	transactions.push_back(trans);
 }

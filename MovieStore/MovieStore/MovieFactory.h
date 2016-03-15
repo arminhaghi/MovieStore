@@ -10,7 +10,7 @@ using namespace std;
 static class MovieFactory
 {
 public:
-	static Movie* makeMovie(string movieInfo);
+	static Movie* makeMovie(const vector<string> movieCreationInfo);
 private:
 	static vector<string> split(string stringToSplit, char separator);
 	static vector<string> splitActorAndDate(string stringToSplit);

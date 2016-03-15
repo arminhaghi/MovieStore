@@ -20,7 +20,7 @@ Movie::~Movie()
 {
 }
 
-Person Movie::getDirector() const
+string Movie::getDirector() const
 {
 	return director;
 }
@@ -40,7 +40,7 @@ int Movie::getReleaseYear() const
 	return releaseYear;
 }
 
-void Movie::setDirector(const Person & argPerson)
+void Movie::setDirector(const string & argPerson)
 {
 	director = argPerson;
 }
@@ -55,9 +55,9 @@ void Movie::setReleaseYear(const int & argYear)
 	releaseYear = argYear;
 }
 
-Person Movie::getActor()
+string Movie::getActor()
 {
-	return Person();
+	return "";
 }
 
 int Movie::getReleaseMonth()

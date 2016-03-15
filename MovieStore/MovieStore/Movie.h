@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include "Person.h"
 using namespace std;
 
 class Movie
@@ -10,12 +9,12 @@ public:
 	//Movie(const Person &argDirector, const string &argTitle, const char &argType, const int &argYear);
 	~Movie();
 	
-	Person getDirector() const;
+	string getDirector() const;
 	string getTitle() const;
 	char getType() const;
 	int getReleaseYear() const;
 
-	void setDirector(const Person &argPerson);
+	void setDirector(const string &argPerson);
 	void setTile(const string &argTitle);
 	void setReleaseYear(const int &argYear);
 
@@ -23,12 +22,12 @@ public:
 	virtual char getIdentifier() const = 0;
 
 	//Classic Movie Virtual Functions
-	virtual Person getActor();
+	virtual string getActor();
 	virtual int getReleaseMonth();
 	virtual void setReleaseMonth(int argMonth);
 
 protected:
-	Person director;
+	string director;
 	string title;
 	char type;
 	int releaseYear;

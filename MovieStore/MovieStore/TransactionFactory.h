@@ -11,9 +11,8 @@ using namespace std;
 static class TransactionFactory
 {
 public:
-	static Transaction* makeTransaction(const string &argMovieInfo);
+	static Transaction* makeTransaction(const vector<string> transCreationInfo);
 private:
-	static vector<string> split(string stringToSplit, char separator);
 	static string combineMovieData(vector<string> movieInfo);
 };
 

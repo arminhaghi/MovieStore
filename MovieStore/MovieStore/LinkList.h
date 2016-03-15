@@ -148,6 +148,8 @@ bool LinkList<ItemType>::Remove(ItemType target, ItemType &result)
 template<class ItemType>
 bool LinkList<ItemType>::Peek(ItemType target, ItemType &result)
 {
+	if (head == NULL)
+		return false;
 	Node *prevNode;
 	prevNode = head;
 
