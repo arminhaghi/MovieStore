@@ -10,19 +10,6 @@ FileReader::~FileReader()
 {
 }
 
-// Leaving these as comments for now as a reference.
-//void FileReader::ReadData4Movies(const string &argFileName, vector<Movie*> &argMovies)
-//{
-//	ifstream file(argFileName);
-//	string stringForMakeMovie;
-//	while (!file.eof())
-//	{
-//		getline(file, stringForMakeMovie);
-//		if (stringForMakeMovie != "")
-//			argMovies.push_back(MovieFactory().makeMovie(split(stringForMakeMovie, ',')));
-//	}
-//}
-
 void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMovies)
 {
 	ifstream file(argFileName);
@@ -33,8 +20,28 @@ void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMo
 		if (stringForMakeMovie != "")
 		{
 			vector<string> movieInfo = split(stringForMakeMovie, ',');
-			if(movieInfo[0] == "F" || movieInfo[0] == "C" || movieInfo[0] == "D")
-				argMovies.Insert(MovieFactory().makeMovie(movieInfo));
+			if (movieInfo[0] == "F" || movieInfo[0] == "C" || movieInfo[0] == "D")
+			{
+				Movie* pMovie = MovieFactory().makeMovie(movieInfo);
+				Movie* exMovie;
+				
+				// If the movies exists, just increase stock
+				if (argMovies.Retrieve(*pMovie, exMovie)) 
+				{
+					// Increase stock
+					exMovie->increaseStock(stoi(movieInfo[1]));
+					delete pMovie;
+					pMovie = exMovie = NULL;
+				}
+				else
+				{
+					argMovies.Insert(pMovie);
+				}
+			}
+			else
+			{
+				cout << movieInfo[0] << " is not a valid movie genre!" << endl;
+			}
 		}
 	}
 }

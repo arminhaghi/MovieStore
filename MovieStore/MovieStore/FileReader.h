@@ -14,7 +14,6 @@ public:
 	FileReader();
 	~FileReader();
 
-	//void ReadData4Movies(const string &argFileName, vector<Movie*> &argMovies);
 	void ReadData4Movies(const string &argFileName, BSTree<Movie> &argMovies);
 	void ReadData4Customers(const string &argFileName, HashTable<Customer> &argCustomers);
 	void ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions);
