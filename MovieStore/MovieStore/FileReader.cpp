@@ -37,7 +37,7 @@ void FileReader::ReadData4Customers(const string &argFileName, HashTable<Custome
 	}
 }
 
-void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers)
+void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, vector<Movie*> movies)
 {
 	ifstream file(argFileName);
 	string stringForMakeTransaction;
@@ -49,7 +49,10 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 		{
 			if (commands[0] == "i" || commands[0] == "I")
 			{
-				
+				for (int i = 0; i < movies.size(); i++)
+				{
+					cout << movies[i] << endl;
+				}
 			}
 			else if (commands[0] == "h" || commands[0] == "H" || commands[0] == "b" || commands[0] == "B" || commands[0] == "r" || commands[0] == "R")
 			{

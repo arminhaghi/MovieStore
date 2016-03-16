@@ -19,7 +19,7 @@ int main()
 	FileReader fileReader;
 	fileReader.ReadData4Movies("data4movies.txt", movies);
 	fileReader.ReadData4Customers("data4customers.txt", customers);
-	fileReader.ReadData4Commands("data4commands.txt", customers);
+	fileReader.ReadData4Commands("data4commands.txt", customers, movies);
 
 	if(customers.Find(x, 2000))
 		cout << x.getName() << endl;
