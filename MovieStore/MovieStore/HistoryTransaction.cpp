@@ -2,13 +2,11 @@
 #include "HistoryTransaction.h"
 
 
-HistoryTransaction::HistoryTransaction()
+HistoryTransaction::HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID)
 {
-}
-
-HistoryTransaction::HistoryTransaction(const int &customerID)
-{
-
+	
+	customers = argCustomers;
+	this->customerID = customerID;
 }
 
 HistoryTransaction::~HistoryTransaction()
@@ -17,5 +15,20 @@ HistoryTransaction::~HistoryTransaction()
 
 bool HistoryTransaction::Process()
 {
+	Customer *x = new Customer();
+	x->setCustomerId(customerID);
+	if (customers.Find(x, customerID))
+	{
+		x->displayHistory();
+		return true;
+	}
+	else
+		cout << "Could not find customer " << customerID << endl;
 	return false;
 }
+
+string HistoryTransaction::transactionInfo() const
+{
+	return "";
+}
+

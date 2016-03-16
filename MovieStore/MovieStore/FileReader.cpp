@@ -31,9 +31,11 @@ void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMo
 	{
 		getline(file, stringForMakeMovie);
 		if (stringForMakeMovie != "")
-			// Leaving this as comments for now as a reference.
-			//argMovies.push_back(MovieFactory().makeMovie(split(stringForMakeMovie, ',')));
-			argMovies.Insert(MovieFactory().makeMovie(split(stringForMakeMovie, ',')));
+		{
+			vector<string> movieInfo = split(stringForMakeMovie, ',');
+			if(movieInfo[0] == "F" || movieInfo[0] == "C" || movieInfo[0] == "D")
+				argMovies.Insert(MovieFactory().makeMovie(movieInfo));
+		}
 	}
 }
 
@@ -52,10 +54,11 @@ void FileReader::ReadData4Customers(const string &argFileName, HashTable<Custome
 	}
 }
 
-void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers)
+void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions)
 {
 	ifstream file(argFileName);
 	string stringForMakeTransaction;
+	Transaction *trans;
 	while (!file.eof())
 	{
 		getline(file, stringForMakeTransaction);
@@ -64,16 +67,27 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 		{
 			if (commands[0] == "i" || commands[0] == "I")
 			{
-				
+				trans = TransactionFactory().makeTransaction(commands, argCustomers, movies);
+				trans->Process();
+				delete trans;
 			}
-			else if (commands[0] == "h" || commands[0] == "H" || commands[0] == "b" || commands[0] == "B" || commands[0] == "r" || commands[0] == "R")
+			else if (commands[0] == "h" || commands[0] == "H")
 			{
-				Customer x(stoi(commands[1]), "");
+				trans = TransactionFactory().makeTransaction(commands, argCustomers, movies);
+				trans->Process();
+				delete trans;
+			}
+			else if (commands[0] == "b" || commands[0] == "B" || commands[0] == "r" || commands[0] == "R")
+			{
+				Customer *x = new Customer();
+				x->setCustomerId(stoi(commands[1]));
 				if (argCustomers.Find(x, stoi(commands[1])))
-					x.addTransaction(TransactionFactory().makeTransaction(commands));
+					x->addTransaction(TransactionFactory().makeTransaction(commands, argCustomers, movies));
 				else
 					cout << "Could not find customer " << stoi(commands[1]) << endl;
 			}
+			else
+				cout << commands[0] << " is not a valid transaction!" << endl;
 		}
 	}
 }

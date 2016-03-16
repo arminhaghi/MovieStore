@@ -17,7 +17,7 @@ public:
 	//void ReadData4Movies(const string &argFileName, vector<Movie*> &argMovies);
 	void ReadData4Movies(const string &argFileName, BSTree<Movie> &argMovies);
 	void ReadData4Customers(const string &argFileName, HashTable<Customer> &argCustomers);
-	void ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers);
+	void ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions);
 
 private:
 	vector<string> split(string stringToSplit, char separator);

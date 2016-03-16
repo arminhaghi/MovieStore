@@ -13,6 +13,7 @@ public:
 	string getTitle() const;
 	char getType() const;
 	int getReleaseYear() const;
+	int getStock() const;
 
 	void setDirector(const string &argPerson);
 	void setTile(const string &argTitle);
@@ -40,4 +41,5 @@ protected:
 	string title;
 	char type;
 	int releaseYear;
+	int stock;
 };

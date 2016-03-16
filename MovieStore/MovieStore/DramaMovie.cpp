@@ -12,6 +12,7 @@ DramaMovie::DramaMovie(const string& argDirector, const string & argTitle, const
 	setTile(argTitle);
 	type = argType;
 	setReleaseYear(argYear);
+	stock = argAmount;
 }
 
 DramaMovie::~DramaMovie()

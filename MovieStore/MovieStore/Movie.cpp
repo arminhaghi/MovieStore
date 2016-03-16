@@ -40,6 +40,11 @@ int Movie::getReleaseYear() const
 	return releaseYear;
 }
 
+int Movie::getStock() const
+{
+	return stock;
+}
+
 void Movie::setDirector(const string & argPerson)
 {
 	director = argPerson;

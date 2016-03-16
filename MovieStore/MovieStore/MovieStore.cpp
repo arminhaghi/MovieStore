@@ -17,14 +17,13 @@ int main()
 	//vector<Movie*> movies;
 	BSTree<Movie> movies;
 	Customer x(2000, "Ducky Donald");
+	vector<Transaction*> transactions;
 
 	FileReader fileReader;
 	fileReader.ReadData4Movies("data4movies.txt", movies);
 	fileReader.ReadData4Customers("data4customers.txt", customers);
-	fileReader.ReadData4Commands("data4commands.txt", customers);
+	fileReader.ReadData4Commands("data4commands.txt", customers, movies, transactions);
 
-	if(customers.Find(x, 2000))
-		cout << x.getName() << endl;
 
 	return 0;
 }

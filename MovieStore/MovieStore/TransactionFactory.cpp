@@ -1,15 +1,15 @@
 #include "stdafx.h"
 #include "TransactionFactory.h"
 
-Transaction* TransactionFactory::makeTransaction(const vector<string> transCreationInfo)
+Transaction* TransactionFactory::makeTransaction(const vector<string> transCreationInfo, HashTable<Customer> &argCustomers, BSTree<Movie> &argMovies)
 {
 	if (transCreationInfo[0] == "I" || transCreationInfo[0] == "i")
 	{
-		return new InventoryTransaction();
+		return new InventoryTransaction(argMovies);
 	}
 	else if (transCreationInfo[0] == "H" || transCreationInfo[0] == "h")
 	{
-		return new HistoryTransaction(stoi(transCreationInfo[1]));
+		return new HistoryTransaction(argCustomers, stoi(transCreationInfo[1]));
 	}
 	else if (transCreationInfo[0] == "B" || transCreationInfo[0] == "b")
 	{
