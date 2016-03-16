@@ -7,15 +7,15 @@ class ReturnTransaction : public Transaction
 {
 public:
 	ReturnTransaction();
-	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string movieData);
+	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieName);
 	~ReturnTransaction();
 
 	bool Process();
-	string transactionInfo() const;
+	string transactionInfo();
 	
 
 private:
 	Customer* customer;
-	Movie* movie;
+	string movie;
 };
 

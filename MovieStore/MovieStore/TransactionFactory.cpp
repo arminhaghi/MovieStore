@@ -3,19 +3,20 @@
 
 Transaction* TransactionFactory::makeTransaction(const vector<string> transCreationInfo, HashTable<Customer> &argCustomers, BSTree<Movie> &argMovies)
 {
-	if (transCreationInfo[0] == "I" || transCreationInfo[0] == "i")
+	if (transCreationInfo[0] == "I")
 	{
 		return new InventoryTransaction(argMovies);
 	}
-	else if (transCreationInfo[0] == "H" || transCreationInfo[0] == "h")
+	else if (transCreationInfo[0] == "H")
 	{
 		return new HistoryTransaction(argCustomers, stoi(transCreationInfo[1]));
 	}
-	else if (transCreationInfo[0] == "B" || transCreationInfo[0] == "b")
+	else if (transCreationInfo[0] == "B")
 	{
+		
 		return new BorrowTransaction(stoi(transCreationInfo[1]), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo));
 	}
-	else if (transCreationInfo[0] == "R" || transCreationInfo[0] == "r")
+	else if (transCreationInfo[0] == "R")
 	{
 		return new ReturnTransaction(stoi(transCreationInfo[1]), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo));
 	}

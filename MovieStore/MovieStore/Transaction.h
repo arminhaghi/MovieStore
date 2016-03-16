@@ -7,6 +7,6 @@ public:
 	Transaction();
 	~Transaction();
 	virtual bool Process() = 0;
-	virtual string transactionInfo();
+	virtual string transactionInfo() = 0;
 };
 

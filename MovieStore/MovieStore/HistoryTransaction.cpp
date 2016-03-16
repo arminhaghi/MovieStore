@@ -27,7 +27,7 @@ bool HistoryTransaction::Process()
 	return false;
 }
 
-string HistoryTransaction::transactionInfo() const
+string HistoryTransaction::transactionInfo()
 {
 	return "";
 }
