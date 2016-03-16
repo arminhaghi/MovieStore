@@ -13,7 +13,19 @@ public:
 	// Base pure virtual functions
 	char getIdentifier() const;
 
+	// Operator Functions
+	bool operator==(const Movie &movie) const;
+	bool operator!=(const Movie &movie) const;
+	bool operator<=(const Movie &movie) const;
+	bool operator<(const Movie &movie) const;
+	bool operator>(const Movie &movie) const;
+	bool operator>=(const Movie &movie) const;
+
 private:
 	char identifier = 'f';
+
+	bool isEqual(const ComedyMovie* movie) const;
+	bool isLess(const ComedyMovie* movie) const;
+	bool isGreater(const ComedyMovie* movie) const;
 };
 

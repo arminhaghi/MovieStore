@@ -10,7 +10,20 @@ FileReader::~FileReader()
 {
 }
 
-void FileReader::ReadData4Movies(const string &argFileName, vector<Movie*> &argMovies)
+// Leaving these as comments for now as a reference.
+//void FileReader::ReadData4Movies(const string &argFileName, vector<Movie*> &argMovies)
+//{
+//	ifstream file(argFileName);
+//	string stringForMakeMovie;
+//	while (!file.eof())
+//	{
+//		getline(file, stringForMakeMovie);
+//		if (stringForMakeMovie != "")
+//			argMovies.push_back(MovieFactory().makeMovie(split(stringForMakeMovie, ',')));
+//	}
+//}
+
+void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMovies)
 {
 	ifstream file(argFileName);
 	string stringForMakeMovie;
@@ -18,7 +31,9 @@ void FileReader::ReadData4Movies(const string &argFileName, vector<Movie*> &argM
 	{
 		getline(file, stringForMakeMovie);
 		if (stringForMakeMovie != "")
-			argMovies.push_back(MovieFactory().makeMovie(split(stringForMakeMovie, ',')));
+			// Leaving this as comments for now as a reference.
+			//argMovies.push_back(MovieFactory().makeMovie(split(stringForMakeMovie, ',')));
+			argMovies.Insert(MovieFactory().makeMovie(split(stringForMakeMovie, ',')));
 	}
 }
 

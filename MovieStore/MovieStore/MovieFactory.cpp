@@ -4,16 +4,23 @@
 Movie * MovieFactory::makeMovie(const vector<string> movieCreationInfo)
 {
 	if (movieCreationInfo[0] == "f" || movieCreationInfo[0] == "F")
+	{
 		return new ComedyMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
+	}
 	else if (movieCreationInfo[0] == "c" || movieCreationInfo[0] == "C")
 	{
 		vector<string> actorYearInfo = splitActorAndDate(movieCreationInfo[4]);
 		return new ClassicMovie(movieCreationInfo[2], movieCreationInfo[3], actorYearInfo[0], 'D', stoi(actorYearInfo[2]), stoi(actorYearInfo[1]), stoi(movieCreationInfo[1]));
 	}
 	else if (movieCreationInfo[0] == "d" || movieCreationInfo[0] == "D")
+	{
 		return new DramaMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
+	}
 	else
+	{
 		cout << movieCreationInfo[0] << " is not a movie code!" << endl;
+		return NULL;
+	}
 }
 
 vector<string> MovieFactory::split(string stringToSplit, char separator)
