@@ -9,11 +9,14 @@
 #include <iostream>
 #include "MovieFactory.h"
 #include "FileReader.h"
+#include "BSTree.h"
 
 int main()
 {
 	HashTable<Customer> customers;
-	vector<Movie*> movies;
+	//vector<Movie*> movies;
+	BSTree<Movie> movies;
+	Customer x(2000, "Ducky Donald");
 	vector<Transaction*> transactions;
 
 	FileReader fileReader;

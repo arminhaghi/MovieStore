@@ -10,7 +10,20 @@ FileReader::~FileReader()
 {
 }
 
-void FileReader::ReadData4Movies(const string &argFileName, vector<Movie*> &argMovies)
+// Leaving these as comments for now as a reference.
+//void FileReader::ReadData4Movies(const string &argFileName, vector<Movie*> &argMovies)
+//{
+//	ifstream file(argFileName);
+//	string stringForMakeMovie;
+//	while (!file.eof())
+//	{
+//		getline(file, stringForMakeMovie);
+//		if (stringForMakeMovie != "")
+//			argMovies.push_back(MovieFactory().makeMovie(split(stringForMakeMovie, ',')));
+//	}
+//}
+
+void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMovies)
 {
 	ifstream file(argFileName);
 	string stringForMakeMovie;
@@ -21,7 +34,7 @@ void FileReader::ReadData4Movies(const string &argFileName, vector<Movie*> &argM
 		{
 			vector<string> movieInfo = split(stringForMakeMovie, ',');
 			if(movieInfo[0] == "F" || movieInfo[0] == "C" || movieInfo[0] == "D")
-				argMovies.push_back(MovieFactory().makeMovie(movieInfo));
+				argMovies.Insert(MovieFactory().makeMovie(movieInfo));
 		}
 	}
 }
@@ -41,7 +54,7 @@ void FileReader::ReadData4Customers(const string &argFileName, HashTable<Custome
 	}
 }
 
-void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, vector<Movie*> movies, vector<Transaction*> transactions)
+void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions)
 {
 	ifstream file(argFileName);
 	string stringForMakeTransaction;

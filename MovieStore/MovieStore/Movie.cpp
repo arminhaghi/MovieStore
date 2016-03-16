@@ -60,12 +60,12 @@ void Movie::setReleaseYear(const int & argYear)
 	releaseYear = argYear;
 }
 
-string Movie::getActor()
+string Movie::getActor() const
 {
 	return "";
 }
 
-int Movie::getReleaseMonth()
+int Movie::getReleaseMonth() const
 {
 	return -1;
 }

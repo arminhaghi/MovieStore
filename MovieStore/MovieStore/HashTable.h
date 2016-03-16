@@ -32,8 +32,6 @@ private:
 	int hash(int key) const;
 };
 
-#endif
-
 template <class ItemType>
 HashTable<ItemType>::HashTable()
 {
@@ -64,3 +62,5 @@ int HashTable<ItemType>::hash(int key) const
 {
 	return key % 1000;
 }
+
+#endif

@@ -23,9 +23,18 @@ public:
 	virtual char getIdentifier() const = 0;
 
 	//Classic Movie Virtual Functions
-	virtual string getActor();
-	virtual int getReleaseMonth();
+	virtual string getActor() const;
+	virtual int getReleaseMonth() const;
 	virtual void setReleaseMonth(int argMonth);
+
+	//Operator Functions
+	virtual bool operator==(const Movie &movie) const = 0;
+	virtual bool operator!=(const Movie &movie) const = 0;
+	virtual bool operator<=(const Movie &movie) const = 0;
+	virtual bool operator<(const Movie &movie) const = 0;
+	virtual bool operator>(const Movie &movie) const = 0;
+	virtual bool operator>=(const Movie &movie) const = 0;
+
 
 protected:
 	string director;

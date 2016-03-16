@@ -1,6 +1,7 @@
 #pragma once
 #include "Transaction.h"
 #include "Movie.h"
+#include "BSTree.h"
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -8,7 +9,7 @@ using namespace std;
 class InventoryTransaction : public Transaction
 {
 public:
-	InventoryTransaction(vector<Movie*> &argMovies);
+	InventoryTransaction(BSTree<Movie> &argMovies);
 	~InventoryTransaction();
 	bool Process();
 	string transactionInfo() const;

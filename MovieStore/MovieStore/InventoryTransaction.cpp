@@ -2,9 +2,9 @@
 #include "InventoryTransaction.h"
 
 
-InventoryTransaction::InventoryTransaction(vector<Movie*> &argMovies)
+InventoryTransaction::InventoryTransaction(BSTree<Movie> &argMovies)
 {
-	this->movies = argMovies;
+	//this->movies = argMovies;
 }
 
 InventoryTransaction::~InventoryTransaction()
