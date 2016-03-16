@@ -7,14 +7,14 @@ class BorrowTransaction : public Transaction
 {
 public:
 	BorrowTransaction();
-	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string movieData);
+	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieName);
 	~BorrowTransaction();
 
-	string transactionInfo() const;
+	string transactionInfo();
 	bool Process();
 
 private:
 	Customer* customer;
-	Movie* movie;
+	string movie;
 };
 

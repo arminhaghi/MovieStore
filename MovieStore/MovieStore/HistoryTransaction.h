@@ -10,7 +10,7 @@ public:
 	HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID);
 	~HistoryTransaction();
 	bool Process();
-	string transactionInfo() const;
+	string transactionInfo();
 
 private:
 	HashTable<Customer> customers;

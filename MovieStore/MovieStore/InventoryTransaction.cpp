@@ -20,7 +20,7 @@ bool InventoryTransaction::Process()
 	return false;
 }
 
-string InventoryTransaction::transactionInfo() const
+string InventoryTransaction::transactionInfo()
 {
 	return "";
 }

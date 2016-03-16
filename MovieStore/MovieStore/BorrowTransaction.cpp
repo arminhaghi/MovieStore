@@ -6,17 +6,18 @@ BorrowTransaction::BorrowTransaction()
 {
 }
 
-BorrowTransaction::BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string movieData)
+BorrowTransaction::BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieName)
 {
+	movie = movieName;
 }
 
 BorrowTransaction::~BorrowTransaction()
 {
 }
 
-string BorrowTransaction::transactionInfo() const
+string BorrowTransaction::transactionInfo()
 {
-	return "Borrowed " + movie->getTitle();
+	return "Borrowed " + movie;
 }
 
 bool BorrowTransaction::Process()

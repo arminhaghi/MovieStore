@@ -12,7 +12,7 @@ public:
 	InventoryTransaction(BSTree<Movie> &argMovies);
 	~InventoryTransaction();
 	bool Process();
-	string transactionInfo() const;
+	string transactionInfo();
 private:
 	vector<Movie*> movies;
 };

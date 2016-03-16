@@ -10,8 +10,3 @@ Transaction::Transaction()
 Transaction::~Transaction()
 {
 }
-
-string Transaction::transactionInfo()
-{
-	return "";
-}
