@@ -4,7 +4,6 @@
 
 HistoryTransaction::HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID)
 {
-	
 	customers = argCustomers;
 	this->customerID = customerID;
 }
