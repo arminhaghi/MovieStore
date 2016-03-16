@@ -16,11 +16,6 @@ Movie * MovieFactory::makeMovie(const vector<string> movieCreationInfo)
 	{
 		return new DramaMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
 	}
-	else
-	{
-		cout << movieCreationInfo[0] << " is not a movie code!" << endl;
-		return NULL;
-	}
 }
 
 vector<string> MovieFactory::split(string stringToSplit, char separator)

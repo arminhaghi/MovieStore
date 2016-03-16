@@ -14,6 +14,7 @@ public:
 	char getType() const;
 	int getReleaseYear() const;
 	int getStock() const;
+	void increaseStock(const int amount);
 
 	void setDirector(const string &argPerson);
 	void setTile(const string &argTitle);
@@ -22,6 +23,7 @@ public:
 	//Pure Virtual Functions
 	virtual char getIdentifier() const = 0;
 
+	// To Do:  Remove these from here, in case it doesn't break things.
 	//Classic Movie Virtual Functions
 	virtual string getActor() const;
 	virtual int getReleaseMonth() const;

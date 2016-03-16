@@ -45,6 +45,11 @@ int Movie::getStock() const
 	return stock;
 }
 
+void Movie::increaseStock(const int amount)
+{
+	stock += amount;
+}
+
 void Movie::setDirector(const string & argPerson)
 {
 	director = argPerson;

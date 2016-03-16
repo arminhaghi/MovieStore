@@ -22,6 +22,8 @@ Transaction* TransactionFactory::makeTransaction(const vector<string> transCreat
 	}
 	else
 	{
+		// We presumably would never come to here, since this was checked once before in fileReader
+		// To Do: might wanna delete this
 		cout << transCreationInfo[0] << " is not an action code!" << endl;
 		return NULL;
 	}
