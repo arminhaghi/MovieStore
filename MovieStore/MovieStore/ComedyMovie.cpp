@@ -12,6 +12,7 @@ ComedyMovie::ComedyMovie(const string & argDirector, const string & argTitle, co
 	setTile(argTitle);
 	type = argType;
 	setReleaseYear(argYear);
+	stock = argAmount;
 }
 
 

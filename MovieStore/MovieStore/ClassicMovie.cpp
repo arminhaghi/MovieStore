@@ -14,6 +14,7 @@ ClassicMovie::ClassicMovie(const string & argDirector, const string & argTitle, 
 	type = argType;
 	setReleaseYear(argYear);
 	setReleaseMonth(argMonth);
+	stock = argAmount;
 }
 
 
