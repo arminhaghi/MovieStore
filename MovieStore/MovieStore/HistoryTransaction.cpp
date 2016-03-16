@@ -15,13 +15,20 @@ HistoryTransaction::~HistoryTransaction()
 
 bool HistoryTransaction::Process()
 {
-	Customer x(customerID, "");
+	Customer *x = new Customer();
+	x->setCustomerId(customerID);
 	if (customers.Find(x, customerID))
 	{
-		x.displayHistory();
+		x->displayHistory();
 		return true;
 	}
 	else
 		cout << "Could not find customer " << customerID << endl;
 	return false;
 }
+
+string HistoryTransaction::transactionInfo() const
+{
+	return "";
+}
+

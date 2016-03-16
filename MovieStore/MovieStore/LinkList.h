@@ -27,7 +27,7 @@ public:
 
 	bool Insert(ItemType *obj);
 	bool Remove(ItemType target, ItemType &result);
-	bool Peek(ItemType target, ItemType &result);
+	bool Peek(ItemType target, ItemType *&result);
 	bool isEmpty();
 	void DeleteList();
 };
@@ -146,7 +146,7 @@ bool LinkList<ItemType>::Remove(ItemType target, ItemType &result)
 }
 
 template<class ItemType>
-bool LinkList<ItemType>::Peek(ItemType target, ItemType &result)
+bool LinkList<ItemType>::Peek(ItemType target, ItemType *&result)
 {
 	if (head == NULL)
 		return false;
@@ -155,7 +155,7 @@ bool LinkList<ItemType>::Peek(ItemType target, ItemType &result)
 
 	if (*(prevNode->data) == target)
 	{
-		result = *(prevNode->data);
+		result = (prevNode->data);
 		return true;
 	}
 
@@ -163,7 +163,7 @@ bool LinkList<ItemType>::Peek(ItemType target, ItemType &result)
 	{
 		if (*(prevNode->next->data) == target)
 		{
-			result = *(prevNode->next->data);
+			result = (prevNode->next->data);
 			return true;
 		}
 		prevNode = prevNode->next;

@@ -37,6 +37,11 @@ int Customer::getCustomerId() const
 	return customerId;
 }
 
+void Customer::setCustomerId(int id)
+{
+	customerId = id;
+}
+
 string Customer::getName() const
 {
 	return name;
@@ -52,7 +57,7 @@ void Customer::displayHistory() const
 	cout << "===================================================" << endl;
 	for (int i = 0; i < transactions.size(); i++)
 	{
-		cout << transactions[i] << endl;
+		cout << transactions[i]->transactionInfo() << endl;
 	}
 	cout << "===================================================" << endl;
 }

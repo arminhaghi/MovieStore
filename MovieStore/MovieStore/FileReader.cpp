@@ -66,9 +66,10 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 			}
 			else if (commands[0] == "b" || commands[0] == "B" || commands[0] == "r" || commands[0] == "R")
 			{
-				Customer x(stoi(commands[1]), "");
+				Customer *x = new Customer();
+				x->setCustomerId(stoi(commands[1]));
 				if (argCustomers.Find(x, stoi(commands[1])))
-					x.addTransaction(TransactionFactory().makeTransaction(commands, argCustomers, movies));
+					x->addTransaction(TransactionFactory().makeTransaction(commands, argCustomers, movies));
 				else
 					cout << "Could not find customer " << stoi(commands[1]) << endl;
 			}

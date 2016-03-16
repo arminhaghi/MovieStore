@@ -19,3 +19,8 @@ bool InventoryTransaction::Process()
 	}
 	return false;
 }
+
+string InventoryTransaction::transactionInfo() const
+{
+	return "";
+}

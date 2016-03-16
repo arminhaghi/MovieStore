@@ -11,6 +11,7 @@ public:
 	InventoryTransaction(vector<Movie*> &argMovies);
 	~InventoryTransaction();
 	bool Process();
+	string transactionInfo() const;
 private:
 	vector<Movie*> movies;
 };

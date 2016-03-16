@@ -17,6 +17,7 @@ public:
 	bool operator==(const Customer &customer) const;
 
 	int getCustomerId() const;
+	void setCustomerId(int id);
 	string getName() const;
 	void addTransaction(Transaction *trans);
 	void displayHistory() const;
