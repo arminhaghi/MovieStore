@@ -15,7 +15,19 @@ BorrowTransaction::~BorrowTransaction()
 {
 }
 
+string BorrowTransaction::getMovie() const
+{
+	return movie->getTitle();
+}
+
 bool BorrowTransaction::Process()
 {
+
 	return false;
+}
+
+ostream& operator<<(ostream& os, const BorrowTransaction &transaction)
+{
+	os << "B " << transaction.getMovie() << endl;
+	return os;
 }

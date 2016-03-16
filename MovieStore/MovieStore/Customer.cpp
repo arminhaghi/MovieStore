@@ -46,3 +46,13 @@ void Customer::addTransaction(Transaction *trans)
 {
 	transactions.push_back(trans);
 }
+
+void Customer::displayHistory() const
+{
+	cout << "===================================================" << endl;
+	for (int i = 0; i < transactions.size(); i++)
+	{
+		cout << transactions[i] << endl;
+	}
+	cout << "===================================================" << endl;
+}

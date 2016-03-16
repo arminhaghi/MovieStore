@@ -5,10 +5,13 @@
 
 class BorrowTransaction : public Transaction
 {
+	friend ostream& operator<<(ostream& os, const BorrowTransaction &transaction);
 public:
 	BorrowTransaction();
 	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieData);
 	~BorrowTransaction();
+
+	string getMovie() const;
 	bool Process();
 
 private:

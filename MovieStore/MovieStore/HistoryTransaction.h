@@ -2,17 +2,17 @@
 #include "Transaction.h"
 #include "Customer.h"
 #include "Movie.h"
+#include "HashTable.h"
 
 class HistoryTransaction : public Transaction
 {
 public:
-	HistoryTransaction();
-	HistoryTransaction(const int &customerID);
+	HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID);
 	~HistoryTransaction();
 	bool Process();
 
 private:
-	Customer* customer;
-
+	HashTable<Customer> customers;
+	int customerID;
 };
 

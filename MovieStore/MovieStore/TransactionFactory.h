@@ -11,7 +11,7 @@ using namespace std;
 static class TransactionFactory
 {
 public:
-	static Transaction* makeTransaction(const vector<string> transCreationInfo);
+	static Transaction* makeTransaction(const vector<string> transCreationInfo, HashTable<Customer> &argCustomers, vector<Movie*> &argMovies);
 private:
 	static string combineMovieData(vector<string> movieInfo);
 };

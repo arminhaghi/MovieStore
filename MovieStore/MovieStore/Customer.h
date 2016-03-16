@@ -2,6 +2,7 @@
 #include <string>
 #include "Transaction.h"
 #include <vector>
+#include <iostream>
 using namespace std;
 
 class Customer
@@ -18,10 +19,11 @@ public:
 	int getCustomerId() const;
 	string getName() const;
 	void addTransaction(Transaction *trans);
+	void displayHistory() const;
 
 private:
 	int customerId;
 	string name;
 	vector<Transaction*> transactions;
+	vector<string> history;
 };
-
