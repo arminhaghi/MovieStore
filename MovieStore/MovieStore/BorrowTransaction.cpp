@@ -20,7 +20,7 @@ string BorrowTransaction::transactionInfo()
 	return "Borrowed " + movie;
 }
 
-bool BorrowTransaction::Process()
+bool BorrowTransaction::Process(BSTree<Movie> movies)
 {
 
 	return false;

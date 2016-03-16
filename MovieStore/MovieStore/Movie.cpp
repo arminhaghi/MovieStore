@@ -78,3 +78,15 @@ int Movie::getReleaseMonth() const
 void Movie::setReleaseMonth(int argMonth)
 {
 }
+
+ostream& operator<<(ostream& os, const Movie &movie)
+{
+
+	os << "Title:" << movie.getTitle();
+	if (movie.getActor() != "")
+	{
+		os << "  Main Actor:" << movie.getActor();
+	}
+	os << " Stock: " << movie.getStock() << endl;
+	return os;
+}

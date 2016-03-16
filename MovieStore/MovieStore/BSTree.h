@@ -164,7 +164,7 @@ void BSTree<ItemType>::preorder(Node * node) const
 {
 	if (node)
 	{
-		cout << endl << *(node->pItem);
+		cout << *(node->pItem);
 		preorder(node->left);
 		preorder(node->right);
 	}

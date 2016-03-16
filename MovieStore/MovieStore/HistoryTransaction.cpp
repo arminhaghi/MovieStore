@@ -12,7 +12,7 @@ HistoryTransaction::~HistoryTransaction()
 {
 }
 
-bool HistoryTransaction::Process()
+bool HistoryTransaction::Process(BSTree<Movie> movies)
 {
 	Customer *x = new Customer();
 	x->setCustomerId(customerID);

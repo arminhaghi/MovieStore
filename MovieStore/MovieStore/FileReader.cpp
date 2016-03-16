@@ -75,13 +75,13 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 			if (commands[0] == "I")
 			{
 				trans = TransactionFactory().makeTransaction(commands, argCustomers, movies);
-				trans->Process();
+				trans->Process(movies);
 				delete trans;
 			}
 			else if (commands[0] == "H")
 			{
 				trans = TransactionFactory().makeTransaction(commands, argCustomers, movies);
-				trans->Process();
+				trans->Process(movies);
 				delete trans;
 			}
 			else if (commands[0] == "B" || commands[0] == "R")

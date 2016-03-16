@@ -1,7 +1,6 @@
 #pragma once
 #include "Transaction.h"
 #include "Customer.h"
-#include "Movie.h"
 
 class ReturnTransaction : public Transaction
 {
@@ -10,7 +9,7 @@ public:
 	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieName);
 	~ReturnTransaction();
 
-	bool Process();
+	bool Process(BSTree<Movie> movies);
 	string transactionInfo();
 	
 

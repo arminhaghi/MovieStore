@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ReturnTransaction.h"
-
+#include "BSTree.h"
 
 ReturnTransaction::ReturnTransaction()
 {
@@ -15,7 +15,7 @@ ReturnTransaction::~ReturnTransaction()
 {
 }
 
-bool ReturnTransaction::Process()
+bool ReturnTransaction::Process(BSTree<Movie> movies)
 {
 	return false;
 }
