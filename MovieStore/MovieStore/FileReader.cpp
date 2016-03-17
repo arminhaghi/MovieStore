@@ -97,7 +97,11 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 				customerToRetrieve->setCustomerId(stoi(commands[1]));
 				if (argCustomers.Find(customerToRetrieve, stoi(commands[1])))
 				{
-					customerToRetrieve->addTransaction(TransactionFactory().makeTransaction(commands, argCustomers, movies));
+					trans = TransactionFactory().makeTransaction(commands, argCustomers, movies);
+					if (trans->Process(movies))
+					{
+						customerToRetrieve->addTransaction(trans);
+					}
 				}
 				else
 				{

@@ -13,6 +13,11 @@ HistoryTransaction::~HistoryTransaction()
 {
 }
 
+char HistoryTransaction::getIdentifier() const
+{
+	return identifier;
+}
+
 //-----------------------------------------------------------------------------
 // performs the transaction
 bool HistoryTransaction::Process(BSTree<Movie> movies)

@@ -25,6 +25,7 @@ public:
 	HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID);
 	~HistoryTransaction();
 
+	char getIdentifier() const;
 	// performs the transaction
 	bool Process(BSTree<Movie> movies);
 
@@ -32,6 +33,7 @@ public:
 	void printTransactionInfo(ostream &out);
 
 private:
+	char identifier = 'H';
 	// a copy of the collection of customers in MovieStore
 	HashTable<Customer> customers;
 

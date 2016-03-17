@@ -32,6 +32,8 @@ public:
 	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers);
 	~BorrowTransaction();
 
+	char getIdentifier() const;
+	Movie * getMovie() const;
 	//prints the action done by this object
 	void printTransactionInfo(ostream &out);
 
@@ -39,6 +41,7 @@ public:
 	bool Process(BSTree<Movie> movies);
 
 private:
+	char identifier = 'B';
 	// ensures the customer exists and the movie exists and can be borrowed
 	bool valid;
 

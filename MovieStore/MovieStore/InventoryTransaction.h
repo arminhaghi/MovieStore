@@ -25,7 +25,8 @@ public:
 	// creates an instance of the InventoryTransaction class
 	InventoryTransaction(BSTree<Movie> &argMovies);
 	~InventoryTransaction();
-
+	
+	char getIdentifier() const;
 	// performs the transaction
 	bool Process(BSTree<Movie> movies);
 
@@ -33,6 +34,7 @@ public:
 	void printTransactionInfo(ostream &out);
 
 private:
+	char identifier = 'I';
 	// a copy of the Movie collection in MovieStore
 	BSTree<Movie> movies;
 };

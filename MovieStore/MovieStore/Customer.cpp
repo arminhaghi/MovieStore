@@ -75,3 +75,29 @@ void Customer::displayHistory() const
 	}
 	cout << "====================================================================" << endl;
 }
+
+bool Customer::isAllowedToReturn(Movie * movie) const
+{
+	int borrowed = 0;
+	int returned = 0;
+
+	for (int i = 0; i < transactions.size(); i++)
+	{
+		if (transactions.at(i)->getIdentifier() == 'B')
+		{
+			if (transactions.at(i)->getMovie() == movie)
+			{
+				borrowed++;
+			}
+		}
+		else if (transactions.at(i)->getIdentifier() == 'R')
+		{
+			if (transactions.at(i)->getMovie() == movie)
+			{
+				returned++;
+			}
+		}
+	}
+
+	return borrowed > returned;
+}

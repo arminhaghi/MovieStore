@@ -12,6 +12,11 @@ InventoryTransaction::~InventoryTransaction()
 {
 }
 
+char InventoryTransaction::getIdentifier() const
+{
+	return identifier;
+}
+
 //-----------------------------------------------------------------------------
 // performs the transaction
 bool InventoryTransaction::Process(BSTree<Movie> movies)

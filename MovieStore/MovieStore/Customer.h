@@ -46,6 +46,7 @@ public:
 
 	// displays the history of Transactions done by the Customer
 	void displayHistory() const;
+	bool isAllowedToReturn(Movie* movie) const;
 
 private:
 	// the ID of the Customer

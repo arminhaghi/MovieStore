@@ -8,6 +8,13 @@ Authors: Kyle Burney, Armin Haghi
 #pragma once
 #include "Transaction.h"
 #include "Customer.h"
+#include "BSTree.h"
+#include "Movie.h"
+#include "ComedyMovie.h"
+#include "ClassicMovie.h"
+#include "DramaMovie.h"
+#include "HashTable.h"
+#include <vector>
 
 //-----------------------------------------------------------------------------
 // ReturnTransaction: A transaction that returns Movies to MovieStore
@@ -23,21 +30,27 @@ class ReturnTransaction : public Transaction
 public:
 	// creates an instance of the ReturnTransaction class
 	ReturnTransaction();
-	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieName);
+	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers);
 	~ReturnTransaction();
 
+	char getIdentifier() const;
+	Movie * getMovie() const;
 	// performs the transaction
 	bool Process(BSTree<Movie> movies);
 
 	//prints the action done by this object
 	void printTransactionInfo(ostream &out);
-	
 
 private:
+	char identifier = 'R';
+	bool valid;
 	// a pointer to the customer returning a movie
 	Customer* customer;
-
+	Movie* movie;
 	// the information used to look up the movie
-	string movie;
+	string movieInfo;
+
+	vector<string> split(string stringToSplit, char separator);
+
 };
 

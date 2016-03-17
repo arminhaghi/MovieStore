@@ -26,6 +26,8 @@ public:
 	Transaction();
 	~Transaction();
 
+	virtual char getIdentifier() const = 0;
+	virtual Movie* getMovie() const;
 	// performs the transaction
 	virtual bool Process(BSTree<Movie> movies) = 0;
 

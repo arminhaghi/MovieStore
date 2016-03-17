@@ -11,6 +11,11 @@ Transaction::~Transaction()
 {
 }
 
+Movie * Transaction::getMovie() const
+{
+	return nullptr;
+}
+
 ostream& operator<<(ostream& out, Transaction &trans)
 {
 	trans.printTransactionInfo(out);
