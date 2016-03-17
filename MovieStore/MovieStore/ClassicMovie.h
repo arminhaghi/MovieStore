@@ -52,7 +52,7 @@ public:
 
 private:
 	// used to identify it is of classic genre
-	char identifier = 'c';
+	char identifier;
 
 	// holds the monthe the movie was released
 	int releaseMonth;

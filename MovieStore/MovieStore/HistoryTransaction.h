@@ -35,7 +35,8 @@ public:
 	void printTransactionInfo(ostream &out);
 
 private:
-	char identifier = 'H';
+	char identifier;
+
 	// a copy of the collection of customers in MovieStore
 	HashTable<Customer> customers;
 

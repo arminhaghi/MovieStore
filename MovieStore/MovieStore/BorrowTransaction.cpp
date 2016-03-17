@@ -1,14 +1,16 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "BorrowTransaction.h"
 
 //-----------------------------------------------------------------------------
 // creates an instance of the BorrowTransaction class
 BorrowTransaction::BorrowTransaction()
 {
+	identifier = 'B';
 }
 
 BorrowTransaction::BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers)
 {
+	identifier = 'B';
 	valid = true;
 	movieInfo = argMovieInfo;
 	customer = new Customer();

@@ -35,7 +35,7 @@ public:
 	void printTransactionInfo(ostream &out);
 
 private:
-	char identifier = 'I';
+	char identifier;
 	// a copy of the Movie collection in MovieStore
 	BSTree<Movie> movies;
 };

@@ -44,7 +44,7 @@ public:
 	void printTransactionInfo(ostream &out);
 
 private:
-	char identifier = 'R';
+	char identifier;
 	bool valid;
 	// a pointer to the customer returning a movie
 	Customer* customer;

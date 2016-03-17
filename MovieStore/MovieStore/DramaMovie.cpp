@@ -1,14 +1,16 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "DramaMovie.h"
 
 //-----------------------------------------------------------------------------
 // creates instances of DramaMovie objects
 DramaMovie::DramaMovie()
 {
+	identifier = 'd';
 }
 
 DramaMovie::DramaMovie(const string& argDirector, const string & argTitle, const char & argType, const int & argYear, const int &argAmount)
 {
+	identifier = 'd';
 	setDirector(argDirector);
 	setTile(argTitle);
 	type = argType;
