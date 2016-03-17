@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+﻿//#include "stdafx.h"
 #include "FileReader.h"
 
 //-----------------------------------------------------------------------------
@@ -23,6 +23,11 @@ void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMo
 		if (stringForMakeMovie != "")
 		{
 			vector<string> movieInfo = split(stringForMakeMovie, ',');
+			if (stoi(movieInfo[1]) < 1)
+			{
+				cout << "Can't accept negative amount for stock!" << endl;
+				continue;
+			}
 			if (movieInfo[0] == "F" || movieInfo[0] == "C" || movieInfo[0] == "D")
 			{
 				Movie* pMovie = MovieFactory().makeMovie(movieInfo);

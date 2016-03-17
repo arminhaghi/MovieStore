@@ -38,7 +38,7 @@ public:
 
 private:
 	// used to identify it is of comedy genre
-	char identifier = 'f';
+	char identifier;
 
 	// determines if two comedy movies are the same
 	bool isEqual(const ComedyMovie* movie) const;

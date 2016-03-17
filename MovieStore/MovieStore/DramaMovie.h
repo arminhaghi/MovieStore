@@ -38,7 +38,7 @@ public:
 
 private:
 	// used to identify it is of drama genre
-	char identifier = 'd';
+	char identifier;
 
 	// determines if two drama movies are the same
 	bool isEqual(const DramaMovie* movie) const;

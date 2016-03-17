@@ -1,15 +1,17 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "InventoryTransaction.h"
 
 //-----------------------------------------------------------------------------
 // creates an instance of the InventoryTransaction class
 InventoryTransaction::InventoryTransaction(BSTree<Movie> &argMovies)
 {
+	identifier = 'I';
 	this->movies = argMovies;
 }
 
 InventoryTransaction::~InventoryTransaction()
 {
+	identifier = 'I';
 }
 
 char InventoryTransaction::getIdentifier() const

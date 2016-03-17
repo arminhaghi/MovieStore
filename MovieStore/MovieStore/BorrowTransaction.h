@@ -41,7 +41,7 @@ public:
 	bool Process(BSTree<Movie> movies);
 
 private:
-	char identifier = 'B';
+	char identifier;
 	// ensures the customer exists and the movie exists and can be borrowed
 	bool valid;
 

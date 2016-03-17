@@ -1,14 +1,16 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "ClassicMovie.h"
 
 //-----------------------------------------------------------------------------
 // creates instance of a ClassicMovie
 ClassicMovie::ClassicMovie()
 {
+	identifier = 'c';
 }
 
 ClassicMovie::ClassicMovie(const string & argDirector, const string & argTitle, const string & argActor, const char & argType, const int & argYear, const int & argMonth, const int &argAmount)
 {
+	identifier = 'c';
 	setDirector(argDirector);
 	setActor(argActor);
 	setTile(argTitle);

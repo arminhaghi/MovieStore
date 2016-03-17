@@ -1,14 +1,16 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "ComedyMovie.h"
 
 //-----------------------------------------------------------------------------
 // creates instances of ComedyMovie objects
 ComedyMovie::ComedyMovie()
 {
+	identifier = 'f';
 }
 
 ComedyMovie::ComedyMovie(const string & argDirector, const string & argTitle, const char & argType, const int & argYear, const int &argAmount)
 {
+	identifier = 'f';
 	setDirector(argDirector);
 	setTile(argTitle);
 	type = argType;

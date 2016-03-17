@@ -1,16 +1,18 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "HistoryTransaction.h"
 
 //-----------------------------------------------------------------------------
 //creates an instance of the HistoryTransaction class
 HistoryTransaction::HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID)
 {
+	identifier = 'H';
 	customers = argCustomers;
 	this->customerID = customerID;
 }
 
 HistoryTransaction::~HistoryTransaction()
 {
+	identifier = 'H';
 }
 
 char HistoryTransaction::getIdentifier() const
