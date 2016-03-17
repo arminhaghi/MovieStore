@@ -25,7 +25,7 @@ public:
 	~HashTable();
 
 	void Insert(ItemType *item, int key);
-	bool Find(ItemType *&item, int key);
+	bool Find(ItemType *&item, int key) const;
 
 private:
 	LinkList<ItemType> *table;
@@ -52,7 +52,7 @@ void HashTable<ItemType>::Insert(ItemType *item, int key)
 }
 
 template <class ItemType>
-bool HashTable<ItemType>::Find(ItemType *&item, int key)
+bool HashTable<ItemType>::Find(ItemType *&item, int key) const
 {
 	ItemType *oldItem = item;
 	bool result = table[hash(key)].Peek(*item, item);

@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -11,6 +12,7 @@ public:
 
 	bool Insert(ItemType *item);
 	bool Retrieve(const ItemType &item, ItemType * &foundItem) const;
+	bool RetrieveAll(const ItemType &item, vector<ItemType*> &foundItems) const;
 	void Display() const;
 	void Empty();
 	bool isEmpty() const;
@@ -132,6 +134,49 @@ bool BSTree<ItemType>::Retrieve(const ItemType &item, ItemType * &foundItem) con
 			start = start->right;
 		}
 	}
+}
+
+// Extra function for to Handle Clasic Movie with Multiple Actors
+template<class ItemType>
+bool BSTree<ItemType>::RetrieveAll(const ItemType &item, vector<ItemType*>  &foundItems) const
+{
+	bool result = false;
+	if (isEmpty())
+	{
+		return false;
+	}
+
+	Node* start;
+	start = root;
+	if (item == *(start->pItem))
+	{
+		foundItems.push_back(start->pItem);
+		result = true;
+	}
+
+	while (true)
+	{
+		if (start == NULL)
+		{
+			break;
+		}
+
+		if (item == *(start->pItem))
+		{
+			foundItems.push_back(start->pItem);
+			result = true;
+		}
+		if (item < *(start->pItem))
+		{
+			start = start->left;
+		}
+		else
+		{
+			start = start->right;
+		}
+	}
+
+	return result;
 }
 
 template<class ItemType>

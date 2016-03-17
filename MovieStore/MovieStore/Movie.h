@@ -15,6 +15,7 @@ public:
 	char getType() const;
 	int getReleaseYear() const;
 	int getStock() const;
+	void updateStock(const int &amount);
 	void increaseStock(const int amount);
 
 	void setDirector(const string &argPerson);

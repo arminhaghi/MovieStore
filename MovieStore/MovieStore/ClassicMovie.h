@@ -32,6 +32,7 @@ private:
 	string actor;
 
 	bool isEqual(const ClassicMovie* movie) const;
+	bool isEqualNoActor(const ClassicMovie* movie) const;
 	bool isLess(const ClassicMovie* movie) const;
 	bool isGreater(const ClassicMovie* movie) const;
 };

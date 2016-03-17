@@ -45,6 +45,11 @@ int Movie::getStock() const
 	return stock;
 }
 
+void Movie::updateStock(const int & amount)
+{
+	stock += amount;
+}
+
 void Movie::increaseStock(const int amount)
 {
 	stock += amount;
