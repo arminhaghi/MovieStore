@@ -1,4 +1,4 @@
-//#include "stdafx.h"
+#include "stdafx.h"
 #include "MovieFactory.h"
 
 //-----------------------------------------------------------------------------
@@ -7,16 +7,16 @@ Movie * MovieFactory::makeMovie(const vector<string> movieCreationInfo)
 {
 	if (movieCreationInfo[0] == "F")
 	{
-		return new ComedyMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
+		return new ComedyMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', atoi(movieCreationInfo[4].c_str()), atoi(movieCreationInfo[1].c_str()));
 	}
 	else if (movieCreationInfo[0] == "C")
 	{
 		vector<string> actorYearInfo = splitActorAndDate(movieCreationInfo[4]);
-		return new ClassicMovie(movieCreationInfo[2], movieCreationInfo[3], actorYearInfo[0], 'D', stoi(actorYearInfo[2]), stoi(actorYearInfo[1]), stoi(movieCreationInfo[1]));
+		return new ClassicMovie(movieCreationInfo[2], movieCreationInfo[3], actorYearInfo[0], 'D', atoi(actorYearInfo[2].c_str()), atoi(actorYearInfo[1].c_str()), atoi(movieCreationInfo[1].c_str()));
 	}
 	else if (movieCreationInfo[0] == "D")
 	{
-		return new DramaMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', stoi(movieCreationInfo[4]), stoi(movieCreationInfo[1]));
+		return new DramaMovie(movieCreationInfo[2], movieCreationInfo[3], 'D', atoi(movieCreationInfo[4].c_str()), atoi(movieCreationInfo[1].c_str()));
 	}
 }
 

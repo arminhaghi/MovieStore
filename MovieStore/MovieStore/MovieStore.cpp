@@ -1,7 +1,7 @@
 // MovieStore.cpp : Defines the entry point for the console application.
 //
 
-//#include "stdafx.h"
+#include "stdafx.h"
 #include "Movie.h"
 #include "ComedyMovie.h"
 #include "ClassicMovie.h"

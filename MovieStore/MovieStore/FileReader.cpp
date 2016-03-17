@@ -1,4 +1,4 @@
-﻿//#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "FileReader.h"
 
 //-----------------------------------------------------------------------------
@@ -23,7 +23,7 @@ void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMo
 		if (stringForMakeMovie != "")
 		{
 			vector<string> movieInfo = split(stringForMakeMovie, ',');
-			if (stoi(movieInfo[1]) < 1)
+			if (atoi(movieInfo[1].c_str()) < 1)
 			{
 				cout << "Can't accept negative amount for stock!" << endl;
 				continue;
@@ -37,7 +37,7 @@ void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMo
 				if (argMovies.Retrieve(*pMovie, exMovie)) 
 				{
 					// Increase stock
-					exMovie->increaseStock(stoi(movieInfo[1]));
+					exMovie->increaseStock(atoi(movieInfo[1].c_str()));
 					delete pMovie;
 					pMovie = exMovie = NULL;
 				}
@@ -99,8 +99,8 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 			else if (commands[0] == "B" || commands[0] == "R")
 			{
 				Customer *customerToRetrieve = new Customer();
-				customerToRetrieve->setCustomerId(stoi(commands[1]));
-				if (argCustomers.Find(customerToRetrieve, stoi(commands[1])))
+				customerToRetrieve->setCustomerId(atoi(commands[1].c_str()));
+				if (argCustomers.Find(customerToRetrieve, atoi(commands[1].c_str())))
 				{
 					trans = TransactionFactory().makeTransaction(commands, argCustomers, movies);
 					if (trans->Process(movies))
@@ -110,7 +110,7 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 				}
 				else
 				{
-					cout << endl << "Could not find customer " << stoi(commands[1]) << endl;
+					cout << endl << "Could not find customer " << atoi(commands[1].c_str()) << endl;
 				}
 			}
 			else
