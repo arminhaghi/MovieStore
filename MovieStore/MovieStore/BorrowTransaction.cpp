@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "BorrowTransaction.h"
 
+//-----------------------------------------------------------------------------
+// creates an instance of the BorrowTransaction class
 BorrowTransaction::BorrowTransaction()
 {
 }
@@ -77,11 +79,15 @@ Movie* BorrowTransaction::getMovie() const
 	return movie;
 }
 
+//-----------------------------------------------------------------------------
+//prints the action done by this object
 void BorrowTransaction::printTransactionInfo(ostream& out)
 {
 	out << "Borrowed " + movieInfo;
 }
 
+//-----------------------------------------------------------------------------
+// performs the Borrowing of a Movie
 bool BorrowTransaction::Process(BSTree<Movie> movies)
 {
 	if (valid)
@@ -92,6 +98,8 @@ bool BorrowTransaction::Process(BSTree<Movie> movies)
 	return false;
 }
 
+//-----------------------------------------------------------------------------
+// used to separate information given from text file
 vector<string> BorrowTransaction::split(string stringToSplit, char separator)
 {
 	string argument = "";

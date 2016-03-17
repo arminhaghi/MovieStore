@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "TransactionFactory.h"
 
+//-----------------------------------------------------------------------------
+//used to create Transaction objects
 Transaction* TransactionFactory::makeTransaction(const vector<string> transCreationInfo, HashTable<Customer> &argCustomers, BSTree<Movie> &argMovies)
 {
 	if (transCreationInfo[0] == "I")
@@ -28,6 +30,8 @@ Transaction* TransactionFactory::makeTransaction(const vector<string> transCreat
 	}
 }
 
+//-----------------------------------------------------------------------------
+//used to combine text data into useful information
 string TransactionFactory::combineMovieData(vector<string> movieInfo)
 {
 	string movieData = "";
