@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "DramaMovie.h"
 
-
+//-----------------------------------------------------------------------------
+// creates instances of DramaMovie objects
 DramaMovie::DramaMovie()
 {
 }
@@ -19,11 +20,15 @@ DramaMovie::~DramaMovie()
 {
 }
 
+//-----------------------------------------------------------------------------
+// Base pure virtual functions
 char DramaMovie::getIdentifier() const
 {
 	return identifier;
 }
 
+//-----------------------------------------------------------------------------
+// Operator Functions
 bool DramaMovie::operator==(const Movie &movie) const
 {
 	const DramaMovie* pMovie = dynamic_cast<const DramaMovie*>(&movie);
@@ -82,12 +87,17 @@ bool DramaMovie::operator>=(const Movie & movie) const
 	return (*this == movie) || (*this > movie);
 }
 
+//-----------------------------------------------------------------------------
+// determines if two drama movies are the same
 bool DramaMovie::isEqual(const DramaMovie * movie) const
 {
 	return identifier == movie->getIdentifier() && director == movie->getDirector() 
 		&& title == movie->getTitle();
 }
 
+//-----------------------------------------------------------------------------
+// determines if the current ComedyMovie instance is of
+// less value than another
 bool DramaMovie::isLess(const DramaMovie * movie) const
 {
 	if (director > movie->getDirector())
@@ -105,6 +115,9 @@ bool DramaMovie::isLess(const DramaMovie * movie) const
 	return false;
 }
 
+//-----------------------------------------------------------------------------
+// determines if the current ComedyMovie instance is of
+// greater value than another
 bool DramaMovie::isGreater(const DramaMovie * movie) const
 {
 	if (director < movie->getDirector())

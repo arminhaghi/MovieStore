@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "HistoryTransaction.h"
 
-
+//-----------------------------------------------------------------------------
+//creates an instance of the HistoryTransaction class
 HistoryTransaction::HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID)
 {
 	customers = argCustomers;
@@ -12,6 +13,8 @@ HistoryTransaction::~HistoryTransaction()
 {
 }
 
+//-----------------------------------------------------------------------------
+// performs the transaction
 bool HistoryTransaction::Process(BSTree<Movie> movies)
 {
 	Customer *x = new Customer();
@@ -28,6 +31,8 @@ bool HistoryTransaction::Process(BSTree<Movie> movies)
 	return false;
 }
 
+//-----------------------------------------------------------------------------
+//prints the action done by this object
 void HistoryTransaction::printTransactionInfo(ostream &out)
 {
 	out << "";

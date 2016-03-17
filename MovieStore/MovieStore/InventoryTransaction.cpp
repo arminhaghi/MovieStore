@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "InventoryTransaction.h"
 
-
+//-----------------------------------------------------------------------------
+// creates an instance of the InventoryTransaction class
 InventoryTransaction::InventoryTransaction(BSTree<Movie> &argMovies)
 {
 	this->movies = argMovies;
@@ -11,6 +12,8 @@ InventoryTransaction::~InventoryTransaction()
 {
 }
 
+//-----------------------------------------------------------------------------
+// performs the transaction
 bool InventoryTransaction::Process(BSTree<Movie> movies)
 {
 	cout << endl << "Total inventory in store" << endl;
@@ -20,6 +23,8 @@ bool InventoryTransaction::Process(BSTree<Movie> movies)
 	return false;
 }
 
+//-----------------------------------------------------------------------------
+//prints the action done by this object
 void InventoryTransaction::printTransactionInfo(ostream &out)
 {
 	out << "";
