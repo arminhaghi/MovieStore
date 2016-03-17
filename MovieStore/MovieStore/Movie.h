@@ -4,6 +4,7 @@ using namespace std;
 
 class Movie
 {
+	friend ostream& operator<<(ostream& os, const Movie &movie);
 public:
 	Movie();
 	//Movie(const Person &argDirector, const string &argTitle, const char &argType, const int &argYear);

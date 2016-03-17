@@ -74,6 +74,10 @@ bool ClassicMovie::operator<=(const Movie & movie) const
 
 bool ClassicMovie::operator<(const Movie & movie) const
 {
+	if (identifier != movie.getIdentifier())
+	{
+		return identifier > movie.getIdentifier();
+	}
 	const ClassicMovie* pMovie = dynamic_cast<const ClassicMovie*>(&movie);
 	if (pMovie != NULL)
 	{
@@ -84,6 +88,10 @@ bool ClassicMovie::operator<(const Movie & movie) const
 
 bool ClassicMovie::operator>(const Movie & movie) const
 {
+	if (identifier != movie.getIdentifier())
+	{
+		return identifier < movie.getIdentifier();
+	}
 	const ClassicMovie* pMovie = dynamic_cast<const ClassicMovie*>(&movie);
 	if (pMovie != NULL)
 	{

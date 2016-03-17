@@ -40,7 +40,7 @@ void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMo
 			}
 			else
 			{
-				cout << movieInfo[0] << " is not a valid movie genre!" << endl;
+				cout << endl << movieInfo[0] << " is not a valid movie genre!" << endl;
 			}
 		}
 	}
@@ -75,28 +75,30 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 			if (commands[0] == "I")
 			{
 				trans = TransactionFactory().makeTransaction(commands, argCustomers, movies);
-				trans->Process();
+				trans->Process(movies);
 				delete trans;
 			}
 			else if (commands[0] == "H")
 			{
 				trans = TransactionFactory().makeTransaction(commands, argCustomers, movies);
-				trans->Process();
+				trans->Process(movies);
 				delete trans;
 			}
 			else if (commands[0] == "B" || commands[0] == "R")
 			{
-				Movie *m;
-
-				Customer *x = new Customer();
-				x->setCustomerId(stoi(commands[1]));
-				if (argCustomers.Find(x, stoi(commands[1])))
-					x->addTransaction(TransactionFactory().makeTransaction(commands, argCustomers, movies));
+				Customer *customerToRetrieve = new Customer();
+				customerToRetrieve->setCustomerId(stoi(commands[1]));
+				if (argCustomers.Find(customerToRetrieve, stoi(commands[1])))
+				{
+					customerToRetrieve->addTransaction(TransactionFactory().makeTransaction(commands, argCustomers, movies));
+				}
 				else
-					cout << "Could not find customer " << stoi(commands[1]) << endl;
+				{
+					cout << endl << "Could not find customer " << stoi(commands[1]) << endl;
+				}
 			}
 			else
-				cout << commands[0] << " is not a valid transaction!" << endl;
+				cout << endl << commands[0] << " is not a valid transaction!" << endl;
 		}
 	}
 }
@@ -112,6 +114,10 @@ vector<string> FileReader::split(string stringToSplit, char separator)
 		{
 			stringArr.push_back(argument);
 			argument = "";
+			if (separator == ',')
+			{
+				i++;
+			}
 		}
 		else
 		{

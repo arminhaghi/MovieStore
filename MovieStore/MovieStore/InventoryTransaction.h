@@ -1,7 +1,5 @@
 #pragma once
 #include "Transaction.h"
-#include "Movie.h"
-#include "BSTree.h"
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -11,9 +9,11 @@ class InventoryTransaction : public Transaction
 public:
 	InventoryTransaction(BSTree<Movie> &argMovies);
 	~InventoryTransaction();
-	bool Process();
-	string transactionInfo();
+
+	bool Process(BSTree<Movie> movies);
+	void printTransactionInfo(ostream &out);
+
 private:
-	vector<Movie*> movies;
+	BSTree<Movie> movies;
 };
 

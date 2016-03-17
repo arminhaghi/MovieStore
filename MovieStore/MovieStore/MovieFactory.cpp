@@ -46,7 +46,11 @@ vector<string> MovieFactory::splitActorAndDate(string stringToSplit)
 	string actorName = "";
 	for (int i = 0; i < actorYearInfo.size() - 2; i++)
 	{
-		actorName += actorYearInfo[i] + " ";
+		actorName += actorYearInfo[i];
+		if (i != actorYearInfo.size() - 3)
+		{
+			actorName += " ";
+		}
 	}
 
 	vector<string> returnArr = { actorName, actorYearInfo[actorYearInfo.size() - 2], actorYearInfo[actorYearInfo.size() - 1] };

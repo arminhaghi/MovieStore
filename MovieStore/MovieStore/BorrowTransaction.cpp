@@ -15,12 +15,12 @@ BorrowTransaction::~BorrowTransaction()
 {
 }
 
-string BorrowTransaction::transactionInfo()
+void BorrowTransaction::printTransactionInfo(ostream& out)
 {
-	return "Borrowed " + movie;
+	out << "Borrowed " + movie;
 }
 
-bool BorrowTransaction::Process()
+bool BorrowTransaction::Process(BSTree<Movie> movies)
 {
 
 	return false;

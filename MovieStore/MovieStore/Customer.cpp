@@ -54,10 +54,11 @@ void Customer::addTransaction(Transaction *trans)
 
 void Customer::displayHistory() const
 {
-	cout << "===================================================" << endl;
+	cout << endl << "Transaction history for customer " << customerId << endl;
+	cout << "====================================================================" << endl;
 	for (int i = 0; i < transactions.size(); i++)
 	{
-		cout << transactions[i]->transactionInfo() << endl;
+		cout << *transactions[i] << endl;
 	}
-	cout << "===================================================" << endl;
+	cout << "====================================================================" << endl;
 }

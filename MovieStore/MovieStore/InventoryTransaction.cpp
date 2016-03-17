@@ -4,23 +4,23 @@
 
 InventoryTransaction::InventoryTransaction(BSTree<Movie> &argMovies)
 {
-	//this->movies = argMovies;
+	this->movies = argMovies;
 }
 
 InventoryTransaction::~InventoryTransaction()
 {
 }
 
-bool InventoryTransaction::Process()
+bool InventoryTransaction::Process(BSTree<Movie> movies)
 {
-	for (int i = 0; i < movies.size(); i++)
-	{
-		cout << movies[i]->getTitle() << ": " << movies[i]->getStock() << endl;
-	}
+	cout << endl << "Total inventory in store" << endl;
+	cout << "====================================================================" << endl;
+	movies.Display();
+	cout << "====================================================================" << endl;
 	return false;
 }
 
-string InventoryTransaction::transactionInfo()
+void InventoryTransaction::printTransactionInfo(ostream &out)
 {
-	return "";
+	out << "";
 }
