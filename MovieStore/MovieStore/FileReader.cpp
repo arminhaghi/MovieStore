@@ -86,11 +86,11 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 			}
 			else if (commands[0] == "B" || commands[0] == "R")
 			{
-				Customer *x = new Customer();
-				x->setCustomerId(stoi(commands[1]));
-				if (argCustomers.Find(x, stoi(commands[1])))
+				Customer *customerToRetrieve = new Customer();
+				customerToRetrieve->setCustomerId(stoi(commands[1]));
+				if (argCustomers.Find(customerToRetrieve, stoi(commands[1])))
 				{
-					x->addTransaction(TransactionFactory().makeTransaction(commands, argCustomers, movies));
+					customerToRetrieve->addTransaction(TransactionFactory().makeTransaction(commands, argCustomers, movies));
 				}
 				else
 				{
