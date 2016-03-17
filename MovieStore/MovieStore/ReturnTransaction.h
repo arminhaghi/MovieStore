@@ -16,11 +16,13 @@ public:
 	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers);
 	~ReturnTransaction();
 
+	char getIdentifier() const;
+	Movie * getMovie() const;
 	bool Process(BSTree<Movie> movies);
 	void printTransactionInfo(ostream &out);
 
 private:
-
+	char identifier = 'R';
 	bool valid;
 	Customer* customer;
 	Movie* movie;

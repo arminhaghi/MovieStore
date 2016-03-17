@@ -11,6 +11,11 @@ InventoryTransaction::~InventoryTransaction()
 {
 }
 
+char InventoryTransaction::getIdentifier() const
+{
+	return identifier;
+}
+
 bool InventoryTransaction::Process(BSTree<Movie> movies)
 {
 	cout << endl << "Total inventory in store" << endl;

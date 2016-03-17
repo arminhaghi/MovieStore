@@ -16,10 +16,13 @@ public:
 	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers);
 	~BorrowTransaction();
 
+	char getIdentifier() const;
+	Movie * getMovie() const;
 	void printTransactionInfo(ostream &out);
 	bool Process(BSTree<Movie> movies);
 
 private:
+	char identifier = 'B';
 	bool valid;
 	Customer* customer;
 	Movie* movie;

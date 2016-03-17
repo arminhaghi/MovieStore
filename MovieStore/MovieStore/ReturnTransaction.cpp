@@ -49,14 +49,27 @@ ReturnTransaction::~ReturnTransaction()
 {
 }
 
+char ReturnTransaction::getIdentifier() const
+{
+	return identifier;
+}
+
+Movie* ReturnTransaction::getMovie() const
+{
+	return movie;
+}
+
 bool ReturnTransaction::Process(BSTree<Movie> movies)
 {
 	if (valid)
 	{
+		if (customer->isAllowedToReturn(movie))
+		{
 			movie->updateStock(1);
 			return true;
-	/*	cout << movie << " has not been borrow by customer " << customer->getCustomerId();
-		return false;*/
+		}
+		cout << movie << " has not been borrow by customer " << customer->getCustomerId();
+		return false;
 	}
 	return false;
 }

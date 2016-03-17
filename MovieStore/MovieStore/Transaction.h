@@ -10,6 +10,8 @@ public:
 	Transaction();
 	~Transaction();
 
+	virtual char getIdentifier() const = 0;
+	virtual Movie* getMovie() const;
 	virtual bool Process(BSTree<Movie> movies) = 0;
 	virtual void printTransactionInfo(ostream &out) = 0;
 

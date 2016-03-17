@@ -21,6 +21,7 @@ public:
 	string getName() const;
 	void addTransaction(Transaction *trans);
 	void displayHistory() const;
+	bool isAllowedToReturn(Movie* movie) const;
 
 private:
 	int customerId;

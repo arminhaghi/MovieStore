@@ -12,6 +12,11 @@ HistoryTransaction::~HistoryTransaction()
 {
 }
 
+char HistoryTransaction::getIdentifier() const
+{
+	return identifier;
+}
+
 bool HistoryTransaction::Process(BSTree<Movie> movies)
 {
 	Customer *x = new Customer();

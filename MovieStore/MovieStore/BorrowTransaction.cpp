@@ -67,6 +67,16 @@ BorrowTransaction::~BorrowTransaction()
 {
 }
 
+char BorrowTransaction::getIdentifier() const
+{
+	return identifier;
+}
+
+Movie* BorrowTransaction::getMovie() const
+{
+	return movie;
+}
+
 void BorrowTransaction::printTransactionInfo(ostream& out)
 {
 	out << "Borrowed " + movieInfo;

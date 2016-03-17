@@ -9,11 +9,13 @@ class InventoryTransaction : public Transaction
 public:
 	InventoryTransaction(BSTree<Movie> &argMovies);
 	~InventoryTransaction();
-
+	
+	char getIdentifier() const;
 	bool Process(BSTree<Movie> movies);
 	void printTransactionInfo(ostream &out);
 
 private:
+	char identifier = 'I';
 	BSTree<Movie> movies;
 };
 
