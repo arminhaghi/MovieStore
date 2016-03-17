@@ -9,7 +9,7 @@ public:
 	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieName);
 	~BorrowTransaction();
 
-	string transactionInfo();
+	void printTransactionInfo(ostream &out);
 	bool Process(BSTree<Movie> movies);
 
 private:

@@ -22,12 +22,14 @@ bool HistoryTransaction::Process(BSTree<Movie> movies)
 		return true;
 	}
 	else
+	{
 		cout << "Could not find customer " << customerID << endl;
+	}
 	return false;
 }
 
-string HistoryTransaction::transactionInfo()
+void HistoryTransaction::printTransactionInfo(ostream &out)
 {
-	return "";
+	out << "";
 }
 

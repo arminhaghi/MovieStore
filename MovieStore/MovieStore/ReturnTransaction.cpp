@@ -20,7 +20,7 @@ bool ReturnTransaction::Process(BSTree<Movie> movies)
 	return false;
 }
 
-string ReturnTransaction::transactionInfo()
+void ReturnTransaction::printTransactionInfo(ostream &out)
 {
-	return "Returned " + movie;
+	out << "Returned " + movie;
 }

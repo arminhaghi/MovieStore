@@ -82,11 +82,11 @@ void Movie::setReleaseMonth(int argMonth)
 ostream& operator<<(ostream& os, const Movie &movie)
 {
 
-	os << "Title:" << movie.getTitle();
+	os << "Title:" << movie.getTitle() << " \t ";
 	if (movie.getActor() != "")
 	{
-		os << "  Main Actor:" << movie.getActor();
+		os << "Main Actor:" << movie.getActor() << " \t ";
 	}
-	os << " Stock: " << movie.getStock() << endl;
+	os << "Stock: " << movie.getStock() << endl;
 	return os;
 }

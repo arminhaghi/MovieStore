@@ -10,7 +10,7 @@ public:
 	~ReturnTransaction();
 
 	bool Process(BSTree<Movie> movies);
-	string transactionInfo();
+	void printTransactionInfo(ostream &out);
 	
 
 private:

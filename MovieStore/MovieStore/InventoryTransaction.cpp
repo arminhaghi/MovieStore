@@ -13,12 +13,14 @@ InventoryTransaction::~InventoryTransaction()
 
 bool InventoryTransaction::Process(BSTree<Movie> movies)
 {
-	
+	cout << endl << "Total inventory in store" << endl;
+	cout << "====================================================================" << endl;
 	movies.Display();
+	cout << "====================================================================" << endl;
 	return false;
 }
 
-string InventoryTransaction::transactionInfo()
+void InventoryTransaction::printTransactionInfo(ostream &out)
 {
-	return "";
+	out << "";
 }
