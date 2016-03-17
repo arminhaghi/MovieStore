@@ -52,6 +52,10 @@ bool ClassicMovie::operator==(const Movie & movie) const
 	const ClassicMovie* pMovie = dynamic_cast<const ClassicMovie*>(&movie);
 	if (pMovie != NULL)
 	{
+		if (pMovie->getActor() == "")
+		{
+			return isEqualNoActor(pMovie);
+		}
 		return isEqual(pMovie);
 	}
 	return false;
@@ -99,8 +103,14 @@ bool ClassicMovie::operator>=(const Movie & movie) const
 
 bool ClassicMovie::isEqual(const ClassicMovie * movie) const
 {
-	return identifier == movie->getIdentifier() && releaseYear == movie->getReleaseYear() 
+	return identifier == movie->getIdentifier() && releaseYear == movie->getReleaseYear()
 		&& releaseMonth == movie->getReleaseMonth() && actor == movie->getActor();
+}
+
+bool ClassicMovie::isEqualNoActor(const ClassicMovie * movie) const
+{
+	return identifier == movie->getIdentifier() && releaseYear == movie->getReleaseYear()
+		&& releaseMonth == movie->getReleaseMonth();
 }
 
 bool ClassicMovie::isLess(const ClassicMovie * movie) const
