@@ -18,7 +18,7 @@ using namespace std;
 // size of the array of LinkedLists
 const int TABLE_SIZE = 1000;
 
-template <class ItemType>
+template <typename HashItemType>
 class HashTable
 {
 public:
@@ -27,14 +27,14 @@ public:
 	~HashTable();
 
 	// inserts an item into the table
-	void Insert(ItemType *item, int key);
+	void Insert(HashItemType *item, int key);
 
 	// finds an item in the table and stores it in item
-	bool Find(ItemType *&item, int key) const;
+	bool Find(HashItemType *&item, int key) const;
 
 private:
 	// array of LinkedLists
-	LinkList<ItemType> *table;
+	LinkList<HashItemType> *table;
 
 	// the function for determining where an item gets inserted
 	int hash(int key) const;
@@ -42,14 +42,14 @@ private:
 
 //-----------------------------------------------------------------------------
 // creates instances of HashTable objects
-template <class ItemType>
-HashTable<ItemType>::HashTable()
+template <typename HashItemType>
+HashTable<HashItemType>::HashTable()
 {
-	table = new LinkList<ItemType>[TABLE_SIZE];
+	table = new LinkList<HashItemType>[TABLE_SIZE];
 }
 
-template <class ItemType>
-HashTable<ItemType>::~HashTable()
+template <typename HashItemType>
+HashTable<HashItemType>::~HashTable()
 {
 	delete[] table;
 	table = NULL;
@@ -57,18 +57,18 @@ HashTable<ItemType>::~HashTable()
 
 //-----------------------------------------------------------------------------
 // inserts an item into the table
-template <class ItemType>
-void HashTable<ItemType>::Insert(ItemType *item, int key)
+template <typename HashItemType>
+void HashTable<HashItemType>::Insert(HashItemType *item, int key)
 {
 	table[hash(key)].Insert(item);
 }
 
 //-----------------------------------------------------------------------------
 // finds an item in the table and stores it in item
-template <class ItemType>
-bool HashTable<ItemType>::Find(ItemType *&item, int key) const
+template <typename HashItemType>
+bool HashTable<HashItemType>::Find(HashItemType *&item, int key) const
 {
-	ItemType *oldItem = item;
+	HashItemType *oldItem = item;
 	bool result = table[hash(key)].Peek(*item, item);
 	delete oldItem;
 	return result;
@@ -76,8 +76,8 @@ bool HashTable<ItemType>::Find(ItemType *&item, int key) const
 
 //-----------------------------------------------------------------------------
 // the function for determining where an item gets inserted
-template <class ItemType>
-int HashTable<ItemType>::hash(int key) const
+template <typename HashItemType>
+int HashTable<HashItemType>::hash(int key) const
 {
 	return key % 1000;
 }

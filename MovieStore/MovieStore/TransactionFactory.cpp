@@ -1,4 +1,4 @@
-//#include "stdafx.h"
+#include "stdafx.h"
 #include "TransactionFactory.h"
 
 //-----------------------------------------------------------------------------
@@ -11,15 +11,16 @@ Transaction* TransactionFactory::makeTransaction(const vector<string> transCreat
 	}
 	else if (transCreationInfo[0] == "H")
 	{
-		return new HistoryTransaction(argCustomers, stoi(transCreationInfo[1]));
+		//return new HistoryTransaction(argCustomers, stoi(transCreationInfo[1]));
+		return new HistoryTransaction(argCustomers, atoi(transCreationInfo[1].c_str()));
 	}
 	else if (transCreationInfo[0] == "B")
 	{
-		return new BorrowTransaction(stoi(transCreationInfo[1]), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo), argMovies, argCustomers);
+		return new BorrowTransaction(atoi(transCreationInfo[1].c_str()), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo), argMovies, argCustomers);
 	}
 	else if (transCreationInfo[0] == "R")
 	{
-		return new ReturnTransaction(stoi(transCreationInfo[1]), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo), argMovies, argCustomers);
+		return new ReturnTransaction(atoi(transCreationInfo[1].c_str()), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo), argMovies, argCustomers);
 	}
 	else
 	{

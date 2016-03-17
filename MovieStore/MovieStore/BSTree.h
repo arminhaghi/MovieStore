@@ -5,13 +5,15 @@ Authors: Armin Haghi, Kyle Burney
 */
 
 #pragma once
+#ifndef BSTree_H
+#define BSTree_H
 #include <vector>
 #include <iostream>
 #include <string>
 using namespace std;
 
 //-----------------------------------------------------------------------------
-// BSTree: a tree filled with nodes containing ItemType data
+// BSTree: a tree filled with nodes containing TreeItemType data
 //
 // Implementation and assumptions:
 //
@@ -19,7 +21,7 @@ using namespace std;
 // -- every nodes left child is of less value than it is
 // -- every nodes right child is of greater value than it is
 
-template<class ItemType>
+template<typename TreeItemType>
 class BSTree
 {
 public:
@@ -27,13 +29,13 @@ public:
 	~BSTree();
 
 	//inserts an object into the tree
-	bool Insert(ItemType *item);
+	bool Insert(TreeItemType *item);
 	
 	// retrievs the first occurence of an object in the tree
-	bool Retrieve(const ItemType &item, ItemType * &foundItem) const;
+	bool Retrieve(const TreeItemType &item, TreeItemType * &foundItem) const;
 	
 	// retrieves all occurences of an object in the tree
-	bool RetrieveAll(const ItemType &item, vector<ItemType*> &foundItems) const;
+	bool RetrieveAll(const TreeItemType &item, vector<TreeItemType*> &foundItems) const;
 	
 	// does an in-order traversal of the tree
 	void Display() const;
@@ -48,7 +50,7 @@ private:
 	struct Node
 	{
 		// pointer to the data object
-		ItemType *pItem;
+		TreeItemType *pItem;
 
 		// right subtree pointer
 		Node *right;
@@ -66,28 +68,30 @@ private:
 	void deleteNode(Node *node);
 
 	// used to delete an object from the tree
-	void removeNode(ItemType *item) const;
+	void removeNode(TreeItemType *item) const;
 };
 
-template<class ItemType>
-BSTree<ItemType>::BSTree()
+#endif
+
+template<typename TreeItemType>
+BSTree<TreeItemType>::BSTree()
 {
 	root = NULL;
 }
 
-template<class ItemType>
-BSTree<ItemType>::~BSTree()
+template<typename TreeItemType>
+BSTree<TreeItemType>::~BSTree()
 {
 	Empty();
 }
 
 //inserts an object into the tree
-template<class ItemType>
-bool BSTree<ItemType>::Insert(ItemType * item)
+template<typename TreeItemType>
+bool BSTree<TreeItemType>::Insert(TreeItemType * item)
 {
 	if (item != NULL)
 	{
-		ItemType *foundItem;
+		TreeItemType *foundItem;
 		if (Retrieve(*item, foundItem) == true)
 		{
 			cerr << "ERROR: Duplicate, insertion refused." << endl;
@@ -138,8 +142,8 @@ bool BSTree<ItemType>::Insert(ItemType * item)
 }
 
 // retrievs the first occurence of an object in the tree
-template<class ItemType>
-bool BSTree<ItemType>::Retrieve(const ItemType &item, ItemType * &foundItem) const
+template<typename TreeItemType>
+bool BSTree<TreeItemType>::Retrieve(const TreeItemType &item, TreeItemType * &foundItem) const
 {
 	if (isEmpty())
 	{
@@ -179,8 +183,8 @@ bool BSTree<ItemType>::Retrieve(const ItemType &item, ItemType * &foundItem) con
 
 // retrieves all occurences of an object in the tree
 // Extra function for to Handle Clasic Movie with Multiple Actors
-template<class ItemType>
-bool BSTree<ItemType>::RetrieveAll(const ItemType &item, vector<ItemType*>  &foundItems) const
+template<typename TreeItemType>
+bool BSTree<TreeItemType>::RetrieveAll(const TreeItemType &item, vector<TreeItemType*>  &foundItems) const
 {
 	bool result = false;
 	if (isEmpty())
@@ -222,25 +226,25 @@ bool BSTree<ItemType>::RetrieveAll(const ItemType &item, vector<ItemType*>  &fou
 }
 
 // does an in-order traversal of the tree
-template<class ItemType>
-void BSTree<ItemType>::Display() const
+template<typename TreeItemType>
+void BSTree<TreeItemType>::Display() const
 {
-	//PrItemType tree to cout in inorder
+	//PrTreeItemType tree to cout in inorder
 	Node *pNode = root;
 	inorder(pNode);
 }
 
 // deletes all nodes from the tree
-template<class ItemType>
-void BSTree<ItemType>::Empty()
+template<typename TreeItemType>
+void BSTree<TreeItemType>::Empty()
 {
 	deleteNode(root);
 	root = NULL;
 }
 
 // returns true if there are no nodes in the tree
-template<class ItemType>
-bool BSTree<ItemType>::isEmpty() const
+template<typename TreeItemType>
+bool BSTree<TreeItemType>::isEmpty() const
 {
 	if (root == NULL)
 	{
@@ -250,8 +254,8 @@ bool BSTree<ItemType>::isEmpty() const
 }
 
 // helper function for Display to print tree in-order
-template<class ItemType>
-void BSTree<ItemType>::inorder(Node * node) const
+template<typename TreeItemType>
+void BSTree<TreeItemType>::inorder(Node * node) const
 {
 	if (node)
 	{
@@ -263,8 +267,8 @@ void BSTree<ItemType>::inorder(Node * node) const
 }
 
 // used to delete a node from the tree
-template<class ItemType>
-void BSTree<ItemType>::deleteNode(Node * node)
+template<typename TreeItemType>
+void BSTree<TreeItemType>::deleteNode(Node * node)
 {
 	if (node != NULL)
 	{
@@ -285,8 +289,8 @@ void BSTree<ItemType>::deleteNode(Node * node)
 }
 
 // used to delete an object from the tree
-template<class ItemType>
-void BSTree<ItemType>::removeNode(ItemType * item) const
+template<typename TreeItemType>
+void BSTree<TreeItemType>::removeNode(TreeItemType * item) const
 {
 	if (item)
 	{

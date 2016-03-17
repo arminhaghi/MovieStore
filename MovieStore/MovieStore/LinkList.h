@@ -18,18 +18,18 @@ using namespace std;
 //
 // -- Each node has data, and pointer to the next node
 
-template<class ItemType>
+template<typename LinkItemType>
 class LinkList
 {
 	// displays the items in the list
-	template<class ItemType>
-	friend ostream& operator<<(ostream& theStream, const LinkList<ItemType> &linkList);
+	/*template<typename LinkItemType>
+	friend ostream& operator<<(ostream& theStream, const LinkList<LinkItemType> &linkList);*/
 
 private:
 	struct Node
 	{
 		// pointer to data object
-		ItemType *data;
+		LinkItemType *data;
 
 		// pointer to next node
 		Node *next;
@@ -45,14 +45,14 @@ public:
 	~LinkList();
 
 	// inserts an item into the list
-	bool Insert(ItemType *obj);
+	bool Insert(LinkItemType *obj);
 
 	// removes an item from the list
-	bool Remove(ItemType target, ItemType &result);
+	bool Remove(LinkItemType target, LinkItemType &result);
 
 	// checks if an item is in the list, returns true if it is,
 	// and stores it in result
-	bool Peek(ItemType target, ItemType *&result);
+	bool Peek(LinkItemType target, LinkItemType *&result);
 
 	// checks if there are no items in the list
 	bool isEmpty();
@@ -61,35 +61,37 @@ public:
 	void DeleteList();
 };
 
+#endif
+
 //-----------------------------------------------------------------------------
 //creates an instance of the LinkList class
-template<class ItemType>
-LinkList<ItemType>::LinkList()
+template<typename LinkItemType>
+LinkList<LinkItemType>::LinkList()
 {
 	head = NULL;
 }
 
-template<class ItemType>
-LinkList<ItemType>::LinkList(const LinkList &linkList)
+template<typename LinkItemType>
+LinkList<LinkItemType>::LinkList(const LinkList &linkList)
 {
 	head = NULL;
 	*this = linkList;
 }
 
-template<class ItemType>
-LinkList<ItemType>::~LinkList()
+template<typename LinkItemType>
+LinkList<LinkItemType>::~LinkList()
 {
 	DeleteList();
 }
 
 //-----------------------------------------------------------------------------
 // inserts an item into the list
-template<class ItemType>
-bool LinkList<ItemType>::Insert(ItemType *obj)
+template<typename LinkItemType>
+bool LinkList<LinkItemType>::Insert(LinkItemType *obj)
 {
 	Node *newNode;
 	newNode = new Node;
-	newNode->data = new ItemType(*obj);
+	newNode->data = new LinkItemType(*obj);
 
 	if (head == NULL)
 	{
@@ -146,8 +148,8 @@ bool LinkList<ItemType>::Insert(ItemType *obj)
 
 //-----------------------------------------------------------------------------
 // removes an item from the list
-template<class ItemType>
-bool LinkList<ItemType>::Remove(ItemType target, ItemType &result)
+template<typename LinkItemType>
+bool LinkList<LinkItemType>::Remove(LinkItemType target, LinkItemType &result)
 {
 	Node *prevNode;
 	prevNode = head;
@@ -183,8 +185,8 @@ bool LinkList<ItemType>::Remove(ItemType target, ItemType &result)
 //-----------------------------------------------------------------------------
 // checks if an item is in the list, returns true if it is,
 // and stores it in result
-template<class ItemType>
-bool LinkList<ItemType>::Peek(ItemType target, ItemType *&result)
+template<typename LinkItemType>
+bool LinkList<LinkItemType>::Peek(LinkItemType target, LinkItemType *&result)
 {
 	if (head == NULL)
 		return false;
@@ -212,16 +214,16 @@ bool LinkList<ItemType>::Peek(ItemType target, ItemType *&result)
 
 //-----------------------------------------------------------------------------
 // checks if there are no items in the list
-template<class ItemType>
-bool LinkList<ItemType>::isEmpty()
+template<typename LinkItemType>
+bool LinkList<LinkItemType>::isEmpty()
 {
 	return (head == NULL);
 }
 
 //-----------------------------------------------------------------------------
 // deletes all items in the list
-template<class ItemType>
-void LinkList<ItemType>::DeleteList()
+template<typename LinkItemType>
+void LinkList<LinkItemType>::DeleteList()
 {
 	if (head == NULL)
 	{
@@ -231,7 +233,7 @@ void LinkList<ItemType>::DeleteList()
 	while (head != NULL && this != NULL)
 	{
 		Node *tempNode;
-		ItemType *tempData;
+		LinkItemType *tempData;
 		tempNode = head;
 		tempData = head->data;
 		head = head->next;
@@ -244,18 +246,17 @@ void LinkList<ItemType>::DeleteList()
 
 //-----------------------------------------------------------------------------
 // displays the items in the list
-template<class ItemType>
-ostream& operator<<(ostream& theStream, const LinkList<ItemType> &linkList)
-{
-	LinkList<ItemType>::Node *pNode;
-	pNode = linkList.head;
-	while (pNode != NULL)
-	{
-		theStream << *(pNode->data);
-		pNode = pNode->next;
-	}
-
-	return theStream;
-}
-
-#endif
+//template<typename LinkItemType>
+//ostream& operator<<(ostream& theStream, const LinkList<LinkItemType> &linkList)
+//{
+//	LinkList<LinkItemType>::Node *pNode = NULL;
+//	pNode = linkList.head;
+//	while (pNode != NULL)
+//	{
+//		theStream << *(pNode->data);
+//		pNode = pNode->next;
+//	}
+//
+//	return theStream;
+//}
+//
