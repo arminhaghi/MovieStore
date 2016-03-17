@@ -55,6 +55,12 @@ BorrowTransaction::BorrowTransaction(const int &customerID, const char &mediaTyp
 		valid = false;
 		cout << movieInfo[0] << " is not a valid movie genre!" << endl;
 	}
+
+	if (movie == NULL)
+	{
+		valid = false;
+		cout << argMovieInfo << " is not a valid movie!" << endl;
+	}
 }
 
 BorrowTransaction::~BorrowTransaction()
@@ -87,6 +93,10 @@ vector<string> BorrowTransaction::split(string stringToSplit, char separator)
 		{
 			stringArr.push_back(argument);
 			argument = "";
+			if (separator == ',')
+			{
+				i++;
+			}
 		}
 		else
 		{

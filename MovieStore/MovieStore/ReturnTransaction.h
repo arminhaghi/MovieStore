@@ -1,20 +1,31 @@
 #pragma once
 #include "Transaction.h"
 #include "Customer.h"
+#include "BSTree.h"
+#include "Movie.h"
+#include "ComedyMovie.h"
+#include "ClassicMovie.h"
+#include "DramaMovie.h"
+#include "HashTable.h"
+#include <vector>
 
 class ReturnTransaction : public Transaction
 {
 public:
 	ReturnTransaction();
-	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string &movieName);
+	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers);
 	~ReturnTransaction();
 
 	bool Process(BSTree<Movie> movies);
 	void printTransactionInfo(ostream &out);
-	
 
 private:
+
+	bool valid;
 	Customer* customer;
-	string movie;
+	Movie* movie;
+	string movieInfo;
+
+	vector<string> split(string stringToSplit, char separator);
 };
 
