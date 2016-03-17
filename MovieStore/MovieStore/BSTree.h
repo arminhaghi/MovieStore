@@ -158,7 +158,7 @@ bool BSTree<ItemType>::RetrieveAll(const ItemType &item, vector<ItemType*>  &fou
 	{
 		if (start == NULL)
 		{
-			return;
+			break;
 		}
 
 		if (item == *(start->pItem))

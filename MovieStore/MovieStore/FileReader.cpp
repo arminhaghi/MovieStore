@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "FileReader.h"
 
 
@@ -112,6 +112,10 @@ vector<string> FileReader::split(string stringToSplit, char separator)
 		{
 			stringArr.push_back(argument);
 			argument = "";
+			if (separator == ',')
+			{
+				i++;
+			}
 		}
 		else
 		{

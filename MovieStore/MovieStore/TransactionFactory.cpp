@@ -13,8 +13,7 @@ Transaction* TransactionFactory::makeTransaction(const vector<string> transCreat
 	}
 	else if (transCreationInfo[0] == "B")
 	{
-		
-		return new BorrowTransaction(stoi(transCreationInfo[1]), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo));
+		return new BorrowTransaction(stoi(transCreationInfo[1]), transCreationInfo[2].c_str()[0], transCreationInfo[3].c_str()[0], combineMovieData(transCreationInfo), argMovies, argCustomers);
 	}
 	else if (transCreationInfo[0] == "R")
 	{
