@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "MovieFactory.h"
 
+//-----------------------------------------------------------------------------
+// creates Movie objects
 Movie * MovieFactory::makeMovie(const vector<string> movieCreationInfo)
 {
 	if (movieCreationInfo[0] == "F")
@@ -18,6 +20,8 @@ Movie * MovieFactory::makeMovie(const vector<string> movieCreationInfo)
 	}
 }
 
+//-----------------------------------------------------------------------------
+// used to split lines of text from a file into useful information
 vector<string> MovieFactory::split(string stringToSplit, char separator)
 {
 	string argument = "";
@@ -40,6 +44,8 @@ vector<string> MovieFactory::split(string stringToSplit, char separator)
 	return stringArr;
 }
 
+//-----------------------------------------------------------------------------
+// used to split the data that combines the actor name and release date
 vector<string> MovieFactory::splitActorAndDate(string stringToSplit)
 {
 	vector<string> actorYearInfo = split(stringToSplit, ' ');

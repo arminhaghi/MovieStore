@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "ComedyMovie.h"
 
-
+//-----------------------------------------------------------------------------
+// creates instances of ComedyMovie objects
 ComedyMovie::ComedyMovie()
 {
 }
@@ -20,11 +21,15 @@ ComedyMovie::~ComedyMovie()
 {
 }
 
+//-----------------------------------------------------------------------------
+// Base pure virtual function
 char ComedyMovie::getIdentifier() const
 {
 	return identifier;
 }
 
+//-----------------------------------------------------------------------------
+// Operator Functions
 bool ComedyMovie::operator==(const Movie & movie) const
 {
 	const ComedyMovie* pMovie = dynamic_cast<const ComedyMovie*>(&movie);
@@ -91,6 +96,9 @@ bool ComedyMovie::isEqual(const ComedyMovie * movie) const
 		&& releaseYear == movie->getReleaseYear();
 }
 
+//-----------------------------------------------------------------------------
+// determines if the current ComedyMovie instance is of
+// less value than another
 bool ComedyMovie::isLess(const ComedyMovie * movie) const
 {
 	if (title > movie->getTitle())
@@ -108,6 +116,9 @@ bool ComedyMovie::isLess(const ComedyMovie * movie) const
 	return false;
 }
 
+//-----------------------------------------------------------------------------
+// determines if the current ComedyMovie instance is of
+// greater value than another
 bool ComedyMovie::isGreater(const ComedyMovie * movie) const
 {
 	if (title < movie->getTitle())

@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "ClassicMovie.h"
 
-
+//-----------------------------------------------------------------------------
+// creates instance of a ClassicMovie
 ClassicMovie::ClassicMovie()
 {
 }
@@ -22,31 +23,42 @@ ClassicMovie::~ClassicMovie()
 {
 }
 
+//-----------------------------------------------------------------------------
+// returns the name of the star actor
 string ClassicMovie::getActor() const
 {
 	return actor;
 }
 
+//-----------------------------------------------------------------------------
+// sets the name of the star actor
 void ClassicMovie::setActor(const string & argActor)
 {
 	actor = argActor;
 }
 
+//-----------------------------------------------------------------------------
+// returns the month the movie was released
 int ClassicMovie::getReleaseMonth() const
 {
 	return releaseMonth;
 }
 
+//-----------------------------------------------------------------------------
+// sets the month the movie was released
 void ClassicMovie::setReleaseMonth(int argMonth)
 {
 	releaseMonth = argMonth;
 }
 
+//-----------------------------------------------------------------------------
 char ClassicMovie::getIdentifier() const
 {
 	return identifier;
 }
 
+//-----------------------------------------------------------------------------
+// Operator Functions
 bool ClassicMovie::operator==(const Movie & movie) const
 {
 	const ClassicMovie* pMovie = dynamic_cast<const ClassicMovie*>(&movie);
@@ -109,18 +121,26 @@ bool ClassicMovie::operator>=(const Movie & movie) const
 	return (*this == movie) || (*this > movie);
 }
 
+//-----------------------------------------------------------------------------
+// determines if two classic movies are the same
 bool ClassicMovie::isEqual(const ClassicMovie * movie) const
 {
 	return identifier == movie->getIdentifier() && releaseYear == movie->getReleaseYear()
 		&& releaseMonth == movie->getReleaseMonth() && actor == movie->getActor();
 }
 
+//-----------------------------------------------------------------------------
+// determines if two classic movies are the same without 
+// consideration for the actor name
 bool ClassicMovie::isEqualNoActor(const ClassicMovie * movie) const
 {
 	return identifier == movie->getIdentifier() && releaseYear == movie->getReleaseYear()
 		&& releaseMonth == movie->getReleaseMonth();
 }
 
+//-----------------------------------------------------------------------------
+// determines if the current ClassicMovie instance is of
+// less value than another
 bool ClassicMovie::isLess(const ClassicMovie * movie) const
 {
 	if (releaseYear < movie->getReleaseYear())
@@ -138,6 +158,9 @@ bool ClassicMovie::isLess(const ClassicMovie * movie) const
 	return false;
 }
 
+//-----------------------------------------------------------------------------
+// determines if the current ClassicMovie instance is of
+// greater value than another
 bool ClassicMovie::isGreater(const ClassicMovie * movie) const
 {
 	if (releaseYear > movie->getReleaseYear())

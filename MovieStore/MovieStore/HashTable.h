@@ -15,23 +15,33 @@
 #include <algorithm>
 using namespace std;
 
+// size of the array of LinkedLists
 const int TABLE_SIZE = 1000;
 
 template <class ItemType>
 class HashTable
 {
 public:
+	// creates instances of HashTable objects
 	HashTable();
 	~HashTable();
 
+	// inserts an item into the table
 	void Insert(ItemType *item, int key);
+
+	// finds an item in the table and stores it in item
 	bool Find(ItemType *&item, int key) const;
 
 private:
+	// array of LinkedLists
 	LinkList<ItemType> *table;
+
+	// the function for determining where an item gets inserted
 	int hash(int key) const;
 };
 
+//-----------------------------------------------------------------------------
+// creates instances of HashTable objects
 template <class ItemType>
 HashTable<ItemType>::HashTable()
 {
@@ -45,12 +55,16 @@ HashTable<ItemType>::~HashTable()
 	table = NULL;
 }
 
+//-----------------------------------------------------------------------------
+// inserts an item into the table
 template <class ItemType>
 void HashTable<ItemType>::Insert(ItemType *item, int key)
 {
 	table[hash(key)].Insert(item);
 }
 
+//-----------------------------------------------------------------------------
+// finds an item in the table and stores it in item
 template <class ItemType>
 bool HashTable<ItemType>::Find(ItemType *&item, int key) const
 {
@@ -60,6 +74,8 @@ bool HashTable<ItemType>::Find(ItemType *&item, int key) const
 	return result;
 }
 
+//-----------------------------------------------------------------------------
+// the function for determining where an item gets inserted
 template <class ItemType>
 int HashTable<ItemType>::hash(int key) const
 {
