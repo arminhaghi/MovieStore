@@ -25,7 +25,7 @@ private:
 		Node *left;
 	};
 	Node *root;
-	void preorder(Node *node) const;
+	void inorder(Node *node) const;
 	void deleteNode(Node *node);
 	void removeNode(ItemType *item) const;
 };
@@ -182,9 +182,9 @@ bool BSTree<ItemType>::RetrieveAll(const ItemType &item, vector<ItemType*>  &fou
 template<class ItemType>
 void BSTree<ItemType>::Display() const
 {
-	//PrItemType tree to cout in preorder
+	//PrItemType tree to cout in inorder
 	Node *pNode = root;
-	preorder(pNode);
+	inorder(pNode);
 }
 
 template<class ItemType>
@@ -205,13 +205,14 @@ bool BSTree<ItemType>::isEmpty() const
 }
 
 template<class ItemType>
-void BSTree<ItemType>::preorder(Node * node) const
+void BSTree<ItemType>::inorder(Node * node) const
 {
 	if (node)
 	{
-		cout << endl << *(node->pItem);
-		preorder(node->left);
-		preorder(node->right);
+		
+		inorder(node->left);
+		cout << *(node->pItem);
+		inorder(node->right);
 	}
 }
 

@@ -51,6 +51,10 @@ bool DramaMovie::operator<=(const Movie & movie) const
 
 bool DramaMovie::operator<(const Movie & movie) const
 {
+	if (identifier != movie.getIdentifier())
+	{
+		return identifier > movie.getIdentifier();
+	}
 	const DramaMovie* pMovie = dynamic_cast<const DramaMovie*>(&movie);
 	if (pMovie != NULL)
 	{
@@ -61,6 +65,10 @@ bool DramaMovie::operator<(const Movie & movie) const
 
 bool DramaMovie::operator>(const Movie & movie) const
 {
+	if (identifier != movie.getIdentifier())
+	{
+		return identifier < movie.getIdentifier();
+	}
 	const DramaMovie* pMovie = dynamic_cast<const DramaMovie*>(&movie);
 	if (pMovie != NULL)
 	{

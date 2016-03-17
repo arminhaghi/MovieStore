@@ -12,7 +12,7 @@ HistoryTransaction::~HistoryTransaction()
 {
 }
 
-bool HistoryTransaction::Process()
+bool HistoryTransaction::Process(BSTree<Movie> movies)
 {
 	Customer *x = new Customer();
 	x->setCustomerId(customerID);
@@ -22,12 +22,14 @@ bool HistoryTransaction::Process()
 		return true;
 	}
 	else
+	{
 		cout << "Could not find customer " << customerID << endl;
+	}
 	return false;
 }
 
-string HistoryTransaction::transactionInfo()
+void HistoryTransaction::printTransactionInfo(ostream &out)
 {
-	return "";
+	out << "";
 }
 

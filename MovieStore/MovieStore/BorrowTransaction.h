@@ -16,8 +16,8 @@ public:
 	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers);
 	~BorrowTransaction();
 
-	string transactionInfo();
-	bool Process();
+	void printTransactionInfo(ostream &out);
+	bool Process(BSTree<Movie> movies);
 
 private:
 	bool valid;

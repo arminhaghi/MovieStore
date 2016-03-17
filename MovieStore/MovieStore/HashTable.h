@@ -54,7 +54,10 @@ void HashTable<ItemType>::Insert(ItemType *item, int key)
 template <class ItemType>
 bool HashTable<ItemType>::Find(ItemType *&item, int key) const
 {
-	return table[hash(key)].Peek(*item, item);
+	ItemType *oldItem = item;
+	bool result = table[hash(key)].Peek(*item, item);
+	delete oldItem;
+	return result;
 }
 
 template <class ItemType>
