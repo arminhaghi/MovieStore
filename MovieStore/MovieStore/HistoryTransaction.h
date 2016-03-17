@@ -9,6 +9,8 @@ Authors: Armin Haghi, Kyle Burney
 #include "Transaction.h"
 #include "Customer.h"
 #include "HashTable.h"
+#include <string>
+using namespace std;
 
 //-----------------------------------------------------------------------------
 // HistoryTransaction: A transaction that displays the Transaction 

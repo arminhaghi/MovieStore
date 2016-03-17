@@ -15,6 +15,8 @@ Authors: Armin Haghi, Kyle Burney
 #include "DramaMovie.h"
 #include "HashTable.h"
 #include <vector>
+#include <string>
+using namespace std;
 
 //-----------------------------------------------------------------------------
 // BorrowTransaction: A transaction that Borrows Movies from MovieStore

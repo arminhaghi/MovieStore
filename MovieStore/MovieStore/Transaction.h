@@ -8,6 +8,7 @@ Authors: Armin Haghi, Kyle Burney
 #include <iostream>
 #include "BSTree.h"
 #include "Movie.h"
+#include <string>
 using namespace std;
 
 //-----------------------------------------------------------------------------

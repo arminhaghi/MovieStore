@@ -92,8 +92,16 @@ bool BorrowTransaction::Process(BSTree<Movie> movies)
 {
 	if (valid)
 	{
-		movie->updateStock(-1);
-		return true;
+		if (movie->getStock() > 0)
+		{
+			movie->updateStock(-1);
+			return true;
+		}
+		else
+		{
+			cout << movieInfo << " is out of stock!" << endl;
+			return false;
+		}
 	}
 	return false;
 }

@@ -13,6 +13,7 @@ Author: Kyle Burney
 #include "HashTable.h"
 #include "BSTree.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 //-----------------------------------------------------------------------------
