@@ -15,6 +15,8 @@ Authors: Kyle Burney, Armin Haghi
 #include "DramaMovie.h"
 #include "HashTable.h"
 #include <vector>
+#include <string>
+using namespace std;
 
 //-----------------------------------------------------------------------------
 // ReturnTransaction: A transaction that returns Movies to MovieStore

@@ -99,7 +99,7 @@ bool BorrowTransaction::Process(BSTree<Movie> movies)
 		}
 		else
 		{
-			cout << movie << " is out of stock!";
+			cout << movieInfo << " is out of stock!" << endl;
 			return false;
 		}
 	}

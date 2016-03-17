@@ -13,6 +13,7 @@ Authors: Armin Haghi, Kyle Burney
 #include "BSTree.h"
 #include <vector>
 #include <iostream>
+#include <string>
 using namespace std;
 
 //-----------------------------------------------------------------------------

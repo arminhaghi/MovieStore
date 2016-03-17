@@ -11,6 +11,7 @@ Authors: Armin Haghi, Kyle Burney
 #include "DramaMovie.h"
 #include <vector>
 #include <iostream>
+#include <string>
 using namespace std;
 
 //-----------------------------------------------------------------------------
@@ -32,4 +33,3 @@ private:
 	// used to split the data that combines the actor name and release date
 	static vector<string> splitActorAndDate(string stringToSplit);
 };
-
