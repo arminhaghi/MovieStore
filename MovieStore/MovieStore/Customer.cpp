@@ -18,7 +18,9 @@ Customer::~Customer()
 {
 	for (int i = transactions.size() - 1; i >= 0; i--)
 	{
-		delete transactions.at(i);
+		Transaction* t = transactions.at(i);
+		delete t;
+		t = NULL;
 	}
 }
 

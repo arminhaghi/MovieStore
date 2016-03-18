@@ -26,7 +26,7 @@ public:
 	//creates an instance of the HistoryTransaction class
 	HistoryTransaction();
 	HistoryTransaction(HashTable<Customer> &argCustomers, 
-								const int &customerID);
+		const int &customerID);
 	~HistoryTransaction();
 
 	char getIdentifier() const;
@@ -40,7 +40,7 @@ private:
 	char identifier;
 
 	// a copy of the collection of customers in MovieStore
-	HashTable<Customer> customers;
+	Customer* customer;
 
 	// the ID of the customer 
 	int customerID;

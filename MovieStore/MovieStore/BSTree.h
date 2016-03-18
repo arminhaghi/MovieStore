@@ -286,8 +286,8 @@ void BSTree<TreeItemType>::deleteNode(Node * node)
 				node->right = NULL;
 			if (node->pItem != NULL)
 				node->pItem = NULL;
-			node = NULL;
 		}
 		delete node;
+		node = NULL;
 	}
 }

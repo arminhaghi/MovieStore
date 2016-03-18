@@ -40,6 +40,7 @@ BorrowTransaction::BorrowTransaction(const int &customerID, const char &mediaTyp
 	else if (genre == 'C')
 	{
 		vector<string> parts = split(argMovieInfo, ' ');
+		
 		ClassicMovie m("director", "title", parts[2] + ' ' + parts[3], mediaType, atoi(parts[1].c_str()), atoi(parts[0].c_str()), 0);
 		argMovies.Retrieve(m, movie);
 		if (movie->getStock() == 0)

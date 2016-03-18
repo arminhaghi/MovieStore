@@ -32,9 +32,11 @@ public:
 	// finds an item in the table and stores it in item
 	bool Find(HashItemType *&item, int key) const;
 
+	void Clear();
+
 private:
-	// array of LinkedLists
-	LinkList<HashItemType> *table;
+	// vector of HashItemType pointers
+	vector<HashItemType*> table[TABLE_SIZE];
 
 	// the function for determining where an item gets inserted
 	int hash(int key) const;
@@ -45,15 +47,12 @@ private:
 template <typename HashItemType>
 HashTable<HashItemType>::HashTable()
 {
-	table = new LinkList<HashItemType>[TABLE_SIZE];
 }
 
 template <typename HashItemType>
 HashTable<HashItemType>::~HashTable()
 {
-	table->DeleteList();
-	delete[] table;
-	table = NULL;
+	Clear();
 }
 
 //-----------------------------------------------------------------------------
@@ -61,7 +60,7 @@ HashTable<HashItemType>::~HashTable()
 template <typename HashItemType>
 void HashTable<HashItemType>::Insert(HashItemType *item, int key)
 {
-	table[hash(key)].Insert(item);
+	table[hash(key)].push_back(item);
 }
 
 //-----------------------------------------------------------------------------
@@ -70,9 +69,32 @@ template <typename HashItemType>
 bool HashTable<HashItemType>::Find(HashItemType *&item, int key) const
 {
 	HashItemType *oldItem = item;
-	bool result = table[hash(key)].Peek(*item, item);
+	bool result = false;
+	for (int i = 0; i < table[hash(key)].size(); i++)
+	{
+		if (*table[hash(key)].at(i) == *item)
+		{
+			item = table[hash(key)].at(i);
+			result = true;
+		}
+	}
 	delete oldItem;
 	return result;
+}
+
+template<typename HashItemType>
+void HashTable<HashItemType>::Clear()
+{
+	for (int i = TABLE_SIZE - 1; i >= 0; i--)
+	{
+		for (int j = table[i].size() - 1; j >= 0; j--)
+		{
+			if (table[i].at(j) != NULL)
+			{
+				delete table[i].at(j);
+			}
+		}
+	}
 }
 
 //-----------------------------------------------------------------------------

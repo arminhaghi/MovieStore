@@ -11,8 +11,14 @@ HistoryTransaction::HistoryTransaction()
 HistoryTransaction::HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID)
 {
 	identifier = 'H';
-	customers = argCustomers;
+	
 	this->customerID = customerID;
+	customer = new Customer();
+	customer->setCustomerId(customerID);
+	if (!argCustomers.Find(customer, customerID))
+	{
+		cout << "Could not find customer " << customerID << endl;
+	}
 }
 
 HistoryTransaction::~HistoryTransaction()
@@ -28,18 +34,8 @@ char HistoryTransaction::getIdentifier() const
 // performs the transaction
 bool HistoryTransaction::Process(BSTree<Movie> &movies)
 {
-	Customer *x = new Customer();
-	x->setCustomerId(customerID);
-	if (customers.Find(x, customerID))
-	{
-		x->displayHistory();
-		return true;
-	}
-	else
-	{
-		cout << "Could not find customer " << customerID << endl;
-	}
-	return false;
+	customer->displayHistory();
+	return true;
 }
 
 //-----------------------------------------------------------------------------

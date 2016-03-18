@@ -27,9 +27,8 @@ class TransactionFactory
 {
 public:
 	//used to create Transaction objects
-	static Transaction* makeTransaction(const vector<string> 
-		transCreationInfo, HashTable<Customer> &argCustomers, 
-		BSTree<Movie> &argMovies);
+	static Transaction* makeTransaction(const vector<string> &transCreationInfo, 
+		HashTable<Customer> &argCustomers, BSTree<Movie> &argMovies);
 private:
 	//used to combine text data into useful information
 	static string combineMovieData(vector<string> movieInfo);

@@ -57,7 +57,4 @@ private:
 
 	// the collection of Transactions done by the Customer
 	vector<Transaction*> transactions;
-
-	// the history of transactions that the Customer has done
-	vector<string> history;
 };

@@ -65,14 +65,16 @@ void FileReader::ReadData4Customers(const string &argFileName, HashTable<Custome
 	{
 		if (file >> ID >> lastName >> firstName)
 		{
-			argCustomers.Insert(new Customer(ID, firstName + " " + lastName), ID);
+			Customer* customer = new Customer(ID, firstName + " " + lastName);
+			argCustomers.Insert(customer, ID);
+			//delete customer;
 		}
 	}
 }
 
 //-----------------------------------------------------------------------------
 // reads text file containing data for Commands
-void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> &movies, vector<Transaction*> transactions)
+void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> &movies)
 {
 	ifstream file(argFileName.c_str());
 	string stringForMakeTransaction;
@@ -104,6 +106,10 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 					if (trans->Process(movies))
 					{
 						customerToRetrieve->addTransaction(trans);
+					}
+					else
+					{
+						delete trans;
 					}
 				}
 				else

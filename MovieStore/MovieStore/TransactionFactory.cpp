@@ -3,7 +3,7 @@
 
 //-----------------------------------------------------------------------------
 //used to create Transaction objects
-Transaction* TransactionFactory::makeTransaction(const vector<string> transCreationInfo, HashTable<Customer> &argCustomers, BSTree<Movie> &argMovies)
+Transaction* TransactionFactory::makeTransaction(const vector<string> &transCreationInfo, HashTable<Customer> &argCustomers, BSTree<Movie> &argMovies)
 {
 	if (transCreationInfo[0] == "I")
 	{

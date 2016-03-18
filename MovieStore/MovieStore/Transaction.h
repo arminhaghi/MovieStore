@@ -25,7 +25,7 @@ class Transaction
 public:
 	// creates an instance of the Transaction class
 	Transaction();
-	~Transaction();
+	virtual ~Transaction();
 
 	virtual char getIdentifier() const = 0;
 	virtual Movie* getMovie() const;
