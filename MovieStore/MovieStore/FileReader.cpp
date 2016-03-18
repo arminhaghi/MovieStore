@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+﻿//#include "stdafx.h"
 #include "FileReader.h"
 
 //-----------------------------------------------------------------------------
@@ -80,6 +80,7 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 	while (getline(file, stringForMakeTransaction))
 	{
 		vector<string> commands = split(stringForMakeTransaction, ' ');
+		
 		if (stringForMakeTransaction != "")
 		{
 			if (commands[0] == "I")
@@ -123,7 +124,6 @@ vector<string> FileReader::split(string stringToSplit, char separator)
 {
 	string argument = "";
 	vector<string> stringArr;
-
 	for (int i = 0; i < stringToSplit.length(); i++)
 	{
 		if (stringToSplit[i] == separator)

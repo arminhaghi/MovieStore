@@ -1,7 +1,7 @@
 // MovieStore.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "Movie.h"
 #include <iostream>
 #include "FileReader.h"
@@ -9,23 +9,28 @@
 
 int main()
 {
-	HashTable<Customer> customers;
-	BSTree<Movie> movies;
-	//Customer x(2000, "Ducky Donald");
-	vector<Transaction*> transactions;
+	//HashTable<Customer> customers;
+	//BSTree<Movie> movies;
+	//vector<Transaction*> transactions;
 
-	FileReader fileReader;
-	fileReader.ReadData4Movies("data4movies.txt", movies);
-	fileReader.ReadData4Customers("data4customers.txt", customers);
-	fileReader.ReadData4Commands("data4commands.txt", customers, movies, transactions);
+	//FileReader fileReader;
+	//fileReader.ReadData4Movies("data4movies.txt", movies);
+	//fileReader.ReadData4Customers("data4customers.txt", customers);
+	//fileReader.ReadData4Commands("data4commands.txt", customers, movies, transactions);
 
+	int i = 1;
+	string s = "1";
 
-	for (int i = 0; i < transactions.size(); i++)
-	{
-		delete transactions.at(i);
-	}
+	Customer* c1 = new Customer(i, s);
 
-	movies.Empty();
+	//Customer* c2 = new Customer(2, "2");
+	//Customer* c3 = new Customer(1, "3");
+
+	//customers.Insert(c1, 1);
+	//customers.Insert(c2, 1);
+	//customers.Insert(c3, 1);
+
+	//movies.Empty();
 
 	return 0;
 }
