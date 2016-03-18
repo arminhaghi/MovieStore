@@ -244,21 +244,3 @@ void LinkList<LinkItemType>::DeleteList()
 
 	head = NULL;
 }
-
-//-----------------------------------------------------------------------------
-// displays the items in the list
-//template<typename LinkItemType>
-//ostream& operator<<(ostream& theStream, const 
-//			LinkList<LinkItemType> &linkList)
-//{
-//	LinkList<LinkItemType>::Node *pNode = NULL;
-//	pNode = linkList.head;
-//	while (pNode != NULL)
-//	{
-//		theStream << *(pNode->data);
-//		pNode = pNode->next;
-//	}
-//
-//	return theStream;
-//}
-//

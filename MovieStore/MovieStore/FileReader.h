@@ -37,12 +37,11 @@ public:
 
 	// reads text file containing data for Customers
 	void ReadData4Customers(const string &argFileName, 
-				HashTable<Customer> &argCustomers);
+		HashTable<Customer> &argCustomers);
 
 	// reads text file containing data for Commands
 	void ReadData4Commands(const string &argFileName, HashTable<Customer> 
-								&argCustomers, BSTree<Movie> movies, 
-								vector<Transaction*> transactions);
+		&argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions);
 
 private:
 	// used to separate the lines of text into useful information

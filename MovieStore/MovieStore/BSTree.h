@@ -35,8 +35,8 @@ public:
 	bool Retrieve(const TreeItemType &item, TreeItemType * &foundItem) const;
 	
 	// retrieves all occurences of an object in the tree
-	bool RetrieveAll(const TreeItemType &item, vector<TreeItemType*> 
-												&foundItems) const;
+	bool RetrieveAll(const TreeItemType &item, 
+		vector<TreeItemType*> &foundItems) const;
 	
 	// does an in-order traversal of the tree
 	void Display() const;
@@ -144,8 +144,8 @@ bool BSTree<TreeItemType>::Insert(TreeItemType * item)
 
 // retrievs the first occurence of an object in the tree
 template<typename TreeItemType>
-bool BSTree<TreeItemType>::Retrieve(const TreeItemType &item,
-						TreeItemType * &foundItem) const
+bool BSTree<TreeItemType>::Retrieve(const TreeItemType &item, 
+	TreeItemType * &foundItem) const
 {
 	if (isEmpty())
 	{
@@ -187,7 +187,7 @@ bool BSTree<TreeItemType>::Retrieve(const TreeItemType &item,
 // Extra function for to Handle Clasic Movie with Multiple Actors
 template<typename TreeItemType>
 bool BSTree<TreeItemType>::RetrieveAll(const TreeItemType &item, 
-					vector<TreeItemType*>  &foundItems) const
+	vector<TreeItemType*>  &foundItems) const
 {
 	bool result = false;
 	if (isEmpty())
