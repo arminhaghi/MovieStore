@@ -24,19 +24,17 @@ class InventoryTransaction : public Transaction
 {
 public:
 	// creates an instance of the InventoryTransaction class
-	InventoryTransaction(BSTree<Movie> &argMovies);
+	InventoryTransaction();
 	~InventoryTransaction();
 	
 	char getIdentifier() const;
 	// performs the transaction
-	bool Process(BSTree<Movie> movies);
+	bool Process(BSTree<Movie> &movies);
 
 	//prints the action done by this object
 	void printTransactionInfo(ostream &out);
 
 private:
 	char identifier;
-	// a copy of the Movie collection in MovieStore
-	BSTree<Movie> movies;
 };
 

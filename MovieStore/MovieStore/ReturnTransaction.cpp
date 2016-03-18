@@ -53,6 +53,8 @@ ReturnTransaction::ReturnTransaction(const int & customerID, const char & mediaT
 
 ReturnTransaction::~ReturnTransaction()
 {
+	customer = NULL;
+	movie = NULL;
 }
 
 char ReturnTransaction::getIdentifier() const
@@ -67,7 +69,7 @@ Movie* ReturnTransaction::getMovie() const
 
 //-----------------------------------------------------------------------------
 // performs the transaction
-bool ReturnTransaction::Process(BSTree<Movie> movies)
+bool ReturnTransaction::Process(BSTree<Movie> &movies)
 {
 	if (valid)
 	{

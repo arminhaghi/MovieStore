@@ -40,7 +40,7 @@ public:
 	char getIdentifier() const;
 	Movie * getMovie() const;
 	// performs the transaction
-	bool Process(BSTree<Movie> movies);
+	bool Process(BSTree<Movie> &movies);
 
 	//prints the action done by this object
 	void printTransactionInfo(ostream &out);

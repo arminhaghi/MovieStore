@@ -72,7 +72,7 @@ void FileReader::ReadData4Customers(const string &argFileName, HashTable<Custome
 
 //-----------------------------------------------------------------------------
 // reads text file containing data for Commands
-void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions)
+void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> &movies, vector<Transaction*> transactions)
 {
 	ifstream file(argFileName.c_str());
 	string stringForMakeTransaction;

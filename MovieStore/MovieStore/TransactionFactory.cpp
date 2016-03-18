@@ -7,7 +7,7 @@ Transaction* TransactionFactory::makeTransaction(const vector<string> transCreat
 {
 	if (transCreationInfo[0] == "I")
 	{
-		return new InventoryTransaction(argMovies);
+		return new InventoryTransaction();
 	}
 	else if (transCreationInfo[0] == "H")
 	{

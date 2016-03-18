@@ -24,13 +24,14 @@ class HistoryTransaction : public Transaction
 {
 public:
 	//creates an instance of the HistoryTransaction class
+	HistoryTransaction();
 	HistoryTransaction(HashTable<Customer> &argCustomers, 
 								const int &customerID);
 	~HistoryTransaction();
 
 	char getIdentifier() const;
 	// performs the transaction
-	bool Process(BSTree<Movie> movies);
+	bool Process(BSTree<Movie> &movies);
 
 	//prints the action done by this object
 	void printTransactionInfo(ostream &out);

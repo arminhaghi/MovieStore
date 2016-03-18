@@ -51,6 +51,7 @@ HashTable<HashItemType>::HashTable()
 template <typename HashItemType>
 HashTable<HashItemType>::~HashTable()
 {
+	table->DeleteList();
 	delete[] table;
 	table = NULL;
 }

@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "HistoryTransaction.h"
 
+HistoryTransaction::HistoryTransaction()
+{
+	identifier = 'H';
+}
+
 //-----------------------------------------------------------------------------
 //creates an instance of the HistoryTransaction class
 HistoryTransaction::HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID)
@@ -12,7 +17,6 @@ HistoryTransaction::HistoryTransaction(HashTable<Customer> &argCustomers, const 
 
 HistoryTransaction::~HistoryTransaction()
 {
-	identifier = 'H';
 }
 
 char HistoryTransaction::getIdentifier() const
@@ -22,7 +26,7 @@ char HistoryTransaction::getIdentifier() const
 
 //-----------------------------------------------------------------------------
 // performs the transaction
-bool HistoryTransaction::Process(BSTree<Movie> movies)
+bool HistoryTransaction::Process(BSTree<Movie> &movies)
 {
 	Customer *x = new Customer();
 	x->setCustomerId(customerID);

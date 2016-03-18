@@ -3,15 +3,13 @@
 
 //-----------------------------------------------------------------------------
 // creates an instance of the InventoryTransaction class
-InventoryTransaction::InventoryTransaction(BSTree<Movie> &argMovies)
+InventoryTransaction::InventoryTransaction()
 {
 	identifier = 'I';
-	this->movies = argMovies;
 }
 
 InventoryTransaction::~InventoryTransaction()
 {
-	identifier = 'I';
 }
 
 char InventoryTransaction::getIdentifier() const
@@ -21,13 +19,13 @@ char InventoryTransaction::getIdentifier() const
 
 //-----------------------------------------------------------------------------
 // performs the transaction
-bool InventoryTransaction::Process(BSTree<Movie> movies)
+bool InventoryTransaction::Process(BSTree<Movie> &movies)
 {
 	cout << endl << "Total inventory in store" << endl;
 	cout << "====================================================================" << endl;
 	movies.Display();
 	cout << "====================================================================" << endl;
-	return false;
+	return true;
 }
 
 //-----------------------------------------------------------------------------

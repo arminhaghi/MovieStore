@@ -16,6 +16,10 @@ Customer::Customer(const int & argCustomerId, const string & argName)
 
 Customer::~Customer()
 {
+	for (int i = transactions.size() - 1; i >= 0; i--)
+	{
+		delete transactions.at(i);
+	}
 }
 
 //-----------------------------------------------------------------------------
