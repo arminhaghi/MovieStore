@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "BorrowTransaction.h"
 
 //-----------------------------------------------------------------------------
@@ -6,10 +6,12 @@
 BorrowTransaction::BorrowTransaction()
 {
 	identifier = 'B';
+	movie = NULL;
 }
 
 BorrowTransaction::BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers)
 {
+	movie = NULL;
 	identifier = 'B';
 	valid = true;
 	movieInfo = argMovieInfo;

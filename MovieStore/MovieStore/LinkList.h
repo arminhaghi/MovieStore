@@ -23,7 +23,8 @@ class LinkList
 {
 	// displays the items in the list
 	/*template<typename LinkItemType>
-	friend ostream& operator<<(ostream& theStream, const LinkList<LinkItemType> &linkList);*/
+	friend ostream& operator<<(ostream& theStream, 
+	const LinkList<LinkItemType> &linkList);*/
 
 private:
 	struct Node
@@ -247,7 +248,8 @@ void LinkList<LinkItemType>::DeleteList()
 //-----------------------------------------------------------------------------
 // displays the items in the list
 //template<typename LinkItemType>
-//ostream& operator<<(ostream& theStream, const LinkList<LinkItemType> &linkList)
+//ostream& operator<<(ostream& theStream, const 
+//			LinkList<LinkItemType> &linkList)
 //{
 //	LinkList<LinkItemType>::Node *pNode = NULL;
 //	pNode = linkList.head;

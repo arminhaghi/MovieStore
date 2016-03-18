@@ -32,7 +32,10 @@ class ReturnTransaction : public Transaction
 public:
 	// creates an instance of the ReturnTransaction class
 	ReturnTransaction();
-	ReturnTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers);
+	ReturnTransaction(const int &customerID, const char &mediaType, 
+				const char &genre, const string &argMovieInfo, 
+				const BSTree<Movie> &argMovies, const HashTable<Customer> 
+				&argCustomers);
 	~ReturnTransaction();
 
 	char getIdentifier() const;

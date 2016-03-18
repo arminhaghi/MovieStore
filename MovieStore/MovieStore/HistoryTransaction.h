@@ -24,7 +24,8 @@ class HistoryTransaction : public Transaction
 {
 public:
 	//creates an instance of the HistoryTransaction class
-	HistoryTransaction(HashTable<Customer> &argCustomers, const int &customerID);
+	HistoryTransaction(HashTable<Customer> &argCustomers, 
+								const int &customerID);
 	~HistoryTransaction();
 
 	char getIdentifier() const;

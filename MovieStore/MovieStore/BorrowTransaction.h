@@ -31,7 +31,9 @@ class BorrowTransaction : public Transaction
 public:
 	// creates an instance of the BorrowTransaction class
 	BorrowTransaction();
-	BorrowTransaction(const int &customerID, const char &mediaType, const char &genre, const string &argMovieInfo, const BSTree<Movie> &argMovies, const HashTable<Customer> &argCustomers);
+	BorrowTransaction(const int &customerID, const char &mediaType, 
+		const char &genre, const string &argMovieInfo, const BSTree<Movie> 
+		&argMovies, const HashTable<Customer> &argCustomers);
 	~BorrowTransaction();
 
 	char getIdentifier() const;

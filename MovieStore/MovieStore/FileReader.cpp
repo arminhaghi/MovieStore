@@ -1,4 +1,4 @@
-﻿#include "stdafx.h"
+﻿//#include "stdafx.h"
 #include "FileReader.h"
 
 //-----------------------------------------------------------------------------
@@ -17,9 +17,8 @@ void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMo
 {
 	ifstream file(argFileName.c_str());
 	string stringForMakeMovie;
-	while (!file.eof())
+	while (getline(file, stringForMakeMovie))
 	{
-		getline(file, stringForMakeMovie);
 		if (stringForMakeMovie != "")
 		{
 			vector<string> movieInfo = split(stringForMakeMovie, ',');
@@ -78,9 +77,8 @@ void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer
 	ifstream file(argFileName.c_str());
 	string stringForMakeTransaction;
 	Transaction *trans;
-	while (!file.eof())
+	while (getline(file, stringForMakeTransaction))
 	{
-		getline(file, stringForMakeTransaction);
 		vector<string> commands = split(stringForMakeTransaction, ' ');
 		if (stringForMakeTransaction != "")
 		{

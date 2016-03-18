@@ -22,7 +22,8 @@ class ComedyMovie : public Movie
 public:
 	// creates instances of ComedyMovie objects
 	ComedyMovie();
-	ComedyMovie(const string &argDirector, const string &argTitle, const char &argType, const int &argYear, const int &argAmount);
+	ComedyMovie(const string &argDirector, const string &argTitle, 
+		const char &argType, const int &argYear, const int &argAmount);
 	~ComedyMovie();
 
 	// Base pure virtual function
