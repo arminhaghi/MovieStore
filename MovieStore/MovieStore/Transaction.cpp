@@ -13,7 +13,8 @@ Transaction::~Transaction()
 
 Movie * Transaction::getMovie() const
 {
-	return nullptr;
+	return NULL;
+	//return nullptr;
 }
 
 ostream& operator<<(ostream& out, Transaction &trans)

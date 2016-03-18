@@ -7,6 +7,7 @@ Authors: Kyle Burney, Armin Haghi
 
 #pragma once
 #include <string>
+#include <iostream>
 using namespace std;
 
 //-----------------------------------------------------------------------------

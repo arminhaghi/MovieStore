@@ -12,6 +12,8 @@ Authors: Armin Haghi, Kyle Burney
 #include <vector>
 #include <iostream>
 #include <string>
+#include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 
 //-----------------------------------------------------------------------------
@@ -21,7 +23,7 @@ using namespace std;
 //
 // -- can not be instantiated
 
-static class MovieFactory
+class MovieFactory
 {
 public:
 	// creates Movie objects

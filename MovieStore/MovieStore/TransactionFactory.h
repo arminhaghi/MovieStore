@@ -23,7 +23,7 @@ using namespace std;
 //
 // -- can not be instantiated
 
-static class TransactionFactory
+class TransactionFactory
 {
 public:
 	//used to create Transaction objects
