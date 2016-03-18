@@ -277,7 +277,7 @@ void BSTree<TreeItemType>::deleteNode(Node * node)
 	{
 		deleteNode(node->left);
 		deleteNode(node->right);
-		/*delete node;
+		delete node->pItem;
 		if (node != NULL)
 		{
 			if (node->left != NULL)
@@ -285,23 +285,9 @@ void BSTree<TreeItemType>::deleteNode(Node * node)
 			if (node->right != NULL)
 				node->right = NULL;
 			if (node->pItem != NULL)
-				node->pItem = NULL;*/
-		node = NULL;
-		//}
-	}
-}
-
-// used to delete an object from the tree
-template<typename TreeItemType>
-void BSTree<TreeItemType>::removeNode(TreeItemType * item) const
-{
-	if (item)
-	{
-		//preorder(node->left);
-		if (root != NULL)
-		{
-
+				node->pItem = NULL;
+			node = NULL;
 		}
+		delete node;
 	}
 }
-

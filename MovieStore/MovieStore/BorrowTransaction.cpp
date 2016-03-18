@@ -71,6 +71,8 @@ BorrowTransaction::BorrowTransaction(const int &customerID, const char &mediaTyp
 
 BorrowTransaction::~BorrowTransaction()
 {
+	customer = NULL;
+	movie = NULL;
 }
 
 char BorrowTransaction::getIdentifier() const
@@ -92,7 +94,7 @@ void BorrowTransaction::printTransactionInfo(ostream& out)
 
 //-----------------------------------------------------------------------------
 // performs the Borrowing of a Movie
-bool BorrowTransaction::Process(BSTree<Movie> movies)
+bool BorrowTransaction::Process(BSTree<Movie> &movies)
 {
 	if (valid)
 	{

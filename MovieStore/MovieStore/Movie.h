@@ -26,7 +26,7 @@ class Movie
 public:
 	// creates an instance of the Movie class
 	Movie();
-	~Movie();
+	virtual ~Movie();// destructor
 	
 	// returns the name of the Director
 	string getDirector() const;

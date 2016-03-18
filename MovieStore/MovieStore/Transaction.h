@@ -30,7 +30,7 @@ public:
 	virtual char getIdentifier() const = 0;
 	virtual Movie* getMovie() const;
 	// performs the transaction
-	virtual bool Process(BSTree<Movie> movies) = 0;
+	virtual bool Process(BSTree<Movie> &movies) = 0;
 
 	//prints the action done by this object
 	virtual void printTransactionInfo(ostream &out) = 0;

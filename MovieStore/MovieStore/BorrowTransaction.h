@@ -42,7 +42,7 @@ public:
 	void printTransactionInfo(ostream &out);
 
 	// performs the Borrowing of a Movie
-	bool Process(BSTree<Movie> movies);
+	bool Process(BSTree<Movie> &movies);
 
 private:
 	char identifier;
