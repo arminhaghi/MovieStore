@@ -22,7 +22,8 @@ class DramaMovie : public Movie
 public:
 	// creates instances of DramaMovie objects
 	DramaMovie();
-	DramaMovie(const string &argDirector, const string &argTitle, const char &argType, const int &argYear, const int &argAmount);
+	DramaMovie(const string &argDirector, const string &argTitle, 
+		const char &argType, const int &argYear, const int &argAmount);
 	~DramaMovie();
 
 	// Base pure virtual functions

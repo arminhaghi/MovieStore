@@ -36,10 +36,12 @@ public:
 	void ReadData4Movies(const string &argFileName, BSTree<Movie> &argMovies);
 
 	// reads text file containing data for Customers
-	void ReadData4Customers(const string &argFileName, HashTable<Customer> &argCustomers);
+	void ReadData4Customers(const string &argFileName, 
+		HashTable<Customer> &argCustomers);
 
 	// reads text file containing data for Commands
-	void ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions);
+	void ReadData4Commands(const string &argFileName, HashTable<Customer> 
+		&argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions);
 
 private:
 	// used to separate the lines of text into useful information

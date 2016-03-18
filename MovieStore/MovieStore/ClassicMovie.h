@@ -24,7 +24,9 @@ class ClassicMovie : public Movie
 public:
 	// creates instances of ClassicMovie objects
 	ClassicMovie();
-	ClassicMovie(const string &argDirector, const string &argTitle, const string &argActor, const char &argType, const int &argYear, const int &argMonth, const int &argAmount);
+	ClassicMovie(const string &argDirector, const string &argTitle, 
+		const string &argActor, const char &argType, const int &argYear, 
+		const int &argMonth, const int &argAmount);
 	~ClassicMovie();
 
 	// returns the name of the star actor

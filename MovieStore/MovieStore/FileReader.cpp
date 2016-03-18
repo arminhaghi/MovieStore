@@ -15,11 +15,10 @@ FileReader::~FileReader()
 // reads text file containing data for Movies
 void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMovies)
 {
-	ifstream file(argFileName);
+	ifstream file(argFileName.c_str());
 	string stringForMakeMovie;
-	while (!file.eof())
+	while (getline(file, stringForMakeMovie))
 	{
-		getline(file, stringForMakeMovie);
 		if (stringForMakeMovie != "")
 		{
 			vector<string> movieInfo = split(stringForMakeMovie, ',');
@@ -58,7 +57,7 @@ void FileReader::ReadData4Movies(const string &argFileName, BSTree<Movie> &argMo
 // reads text file containing data for Customers
 void FileReader::ReadData4Customers(const string &argFileName, HashTable<Customer> &argCustomers)
 {
-	ifstream file(argFileName);
+	ifstream file(argFileName.c_str());
 	int ID;
 	string lastName;
 	string firstName;
@@ -75,12 +74,11 @@ void FileReader::ReadData4Customers(const string &argFileName, HashTable<Custome
 // reads text file containing data for Commands
 void FileReader::ReadData4Commands(const string &argFileName, HashTable<Customer> &argCustomers, BSTree<Movie> movies, vector<Transaction*> transactions)
 {
-	ifstream file(argFileName);
+	ifstream file(argFileName.c_str());
 	string stringForMakeTransaction;
 	Transaction *trans;
-	while (!file.eof())
+	while (getline(file, stringForMakeTransaction))
 	{
-		getline(file, stringForMakeTransaction);
 		vector<string> commands = split(stringForMakeTransaction, ' ');
 		if (stringForMakeTransaction != "")
 		{

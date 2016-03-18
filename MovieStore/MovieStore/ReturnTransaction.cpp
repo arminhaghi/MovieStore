@@ -6,11 +6,13 @@
 // creates an instance of the ReturnTransaction class
 ReturnTransaction::ReturnTransaction()
 {
+	movie = NULL;
 	identifier = 'R';
 }
 
 ReturnTransaction::ReturnTransaction(const int & customerID, const char & mediaType, const char & genre, const string & argMovieInfo, const BSTree<Movie>& argMovies, const HashTable<Customer>& argCustomers)
 {
+	movie = NULL;
 	identifier = 'R';
 	valid = true;
 	movieInfo = argMovieInfo;

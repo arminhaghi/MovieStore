@@ -59,6 +59,9 @@ vector<string> MovieFactory::splitActorAndDate(string stringToSplit)
 		}
 	}
 
-	vector<string> returnArr = { actorName, actorYearInfo[actorYearInfo.size() - 2], actorYearInfo[actorYearInfo.size() - 1] };
+	vector<string> returnArr; 
+	returnArr.push_back(actorName);
+	returnArr.push_back(actorYearInfo[actorYearInfo.size() - 2]);
+	returnArr.push_back(actorYearInfo[actorYearInfo.size() - 1]);
 	return returnArr;
 }
